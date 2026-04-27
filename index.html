@@ -30,26 +30,6 @@
             line-height: 1.7;
         }
 
-        /* ===== WATERMARK ===== */
-        section:not(.hero) {
-            position: relative;
-        }
-        section:not(.hero)::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('images/logo-watermark.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: min(60vw, 500px);
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 0;
-        }
-        section:not(.hero) > * {
-            position: relative;
-            z-index: 1;
-        }
             -webkit-font-smoothing: antialiased;
         }
         a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
