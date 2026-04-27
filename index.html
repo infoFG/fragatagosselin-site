@@ -255,6 +255,25 @@
         }
 
         /* ===== CONTACT ===== */
+        section#contact {
+            position: relative;
+        }
+        section#contact::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('images/logo-icone-marine.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: min(60vw, 400px);
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
+        section#contact > * {
+            position: relative;
+            z-index: 1;
+        }
         .contact-box {
             background: rgba(66,85,111,0.06);
             border: 1px solid rgba(66,85,111,0.2);
