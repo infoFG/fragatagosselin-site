@@ -282,9 +282,11 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 640px) {
-            nav .nav-links { gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            nav .nav-links a { font-size: 11px; white-space: nowrap; }
-            nav .logo img { height: 28px; }
+            nav .nav-links { gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-shrink: 0; max-width: 72%; scrollbar-width: none; }
+            nav .nav-links::-webkit-scrollbar { display: none; }
+            nav .nav-links a { font-size: 11px; white-space: nowrap; display: inline-block; padding: 0 4px; }
+            nav .logo img { height: 24px; }
+            nav .nav-inner { gap: 8px; }
             nav { padding: 0 16px; }
             .container { padding: 0 20px; }
             .services-grid { grid-template-columns: 1fr; }
