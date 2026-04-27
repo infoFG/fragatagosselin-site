@@ -98,6 +98,36 @@
             font-size: 14px; color: var(--text-muted);
             line-height: 1.6;
         }
+        .article-card .cat-badge {
+            display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--sable);
+            border: 1px solid var(--sable); border-radius: 4px;
+            padding: 1px 8px; margin-top: 10px;
+        }
+        /* make cat-badge clickable */
+        .cat-badge { cursor: pointer; }
+        .cat-badge:hover { background: rgba(209,148,105,0.15); }
+
+        /* ===== FILTERS ===== */
+        .filters {
+            display: flex; gap: 8px; flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .filter-btn {
+            font-size: 11px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px; border-radius: 50px;
+            border: 1px solid rgba(66,85,111,0.3);
+            background: transparent; color: var(--text-muted);
+            cursor: pointer; transition: all 0.2s;
+            font-family: 'Manrope', sans-serif;
+        }
+        .filter-btn:hover { border-color: var(--sable); color: var(--sable); }
+        .filter-btn.active {
+            background: var(--sable); color: #1a1a1a;
+            border-color: var(--sable);
+        }
+        .article-card.hidden { display: none !important; }
 
         /* ===== FOOTER ===== */
         footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
@@ -136,15 +166,80 @@
 
     <section class="article-list">
         <div class="container">
-            <!-- === NOUVEL ARTICLE : copier-coller ce bloc et modifier === -->
-            <a href="exemple-article.html" class="article-card" style="display:block;">
-                <div class="date">27 avril 2026</div>
-                <h2>Premier article — À titre d'exemple</h2>
-                <p>Ceci est un article de démonstration. Il sera remplacé par un vrai contenu dès que vous m'enverrez votre premier billet.</p>
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="strategie">Stratégie</button>
+                <button class="filter-btn" data-filter="developpement-durable">Développement durable</button>
+            </div>
+
+            <a href="comment-gerer-limprevisibilite-dans-une-entreprise.html" class="article-card" style="display:block;" data-category="strategie">
+                <div class="date">25 février 2026</div>
+                <h2>Comment gérer l'imprévisibilité dans une entreprise ?</h2>
+                <p>Près de 51 % des entreprises québécoises ont été affectées par au moins un phénomène climatique dans les 12 derniers mois. Pourtant, seulement 8% ont un plan d'adaptation finalisé. Que peut nous apprendre Toyota sur la résilience ?</p>
+                <span class="cat-badge" data-category="strategie">Stratégie</span>
             </a>
-            <!-- === FIN DU BLOC === -->
+
+            <a href="la-neige-nuisance-ou-alliee.html" class="article-card" style="display:block;" data-category="developpement-durable">
+                <div class="date">7 janvier 2026</div>
+                <h2>La neige, nuisance ou alliée ?</h2>
+                <p>Chaque hiver, les villes québécoises dépensent des millions pour gérer la neige. Et si cette contrainte saisonnière devenait un levier d'innovation et de développement durable ?</p>
+                <span class="cat-badge" data-category="developpement-durable">Développement durable</span>
+            </a>
+
+            <a href="memoire-pre-electoral-oui-ou-non.html" class="article-card" style="display:block;" data-category="strategie">
+                <div class="date">6 janvier 2026</div>
+                <h2>Mémoire pré-électoral : oui ou non ?</h2>
+                <p>À l'approche des élections, les organisations sont sollicitées pour déposer des mémoires. Faut-il toujours répondre présent ? Une réflexion stratégique sur l'opportunité et le positionnement.</p>
+                <span class="cat-badge" data-category="strategie">Stratégie</span>
+            </a>
         </div>
     </section>
+
+    <script>
+        (function() {{
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.article-card');
+            const badges = document.querySelectorAll('.cat-badge');
+
+            function filterArticles(category) {{
+                cards.forEach(card => {{
+                    if (category === 'all' || card.dataset.category === category) {{
+                        card.classList.remove('hidden');
+                    }} else {{
+                        card.classList.add('hidden');
+                    }}
+                }});
+                filterBtns.forEach(btn => {{
+                    btn.classList.toggle('active', btn.dataset.filter === category);
+                }});
+                // Update URL hash
+                if (category !== 'all') {{
+                    history.replaceState(null, '', '#' + category);
+                }} else {{
+                    history.replaceState(null, '', '.');
+                }}
+            }}
+
+            filterBtns.forEach(btn => {{
+                btn.addEventListener('click', () => filterArticles(btn.dataset.filter));
+            }});
+
+            // Badges also filter (clicking a badge activates its category)
+            badges.forEach(badge => {{
+                badge.addEventListener('click', (e) => {{
+                    e.preventDefault();
+                    e.stopPropagation();
+                    filterArticles(badge.dataset.category);
+                }});
+            }});
+
+            // On page load, check URL hash
+            const hash = window.location.hash.replace('#', '');
+            if (hash && ['strategie', 'developpement-durable'].includes(hash)) {{
+                filterArticles(hash);
+            }}
+        }})();
+    </script>
 
     <footer>
         <div class="container">
