@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FRAGATA GOSSELIN – STRATÉGIE | ÉCONOMIE | GOUVERNANCE | INNOVATION</title>
+    <link rel="icon" type="image/svg+xml" href="images/fragata-gosselin.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a1a;
+            color: #e0e0e0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: #84a4d4; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #a8c4f0; }
+
+        /* ===== CONTAINER ===== */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(10,10,26,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 60px;
+        }
+        nav .logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 600; font-size: 14px; color: #fff;
+            letter-spacing: 0.5px;
+        }
+        nav .logo img { height: 36px; width: auto; }
+        nav .nav-links { display: flex; gap: 24px; list-style: none; }
+        nav .nav-links a {
+            font-size: 13px; font-weight: 500; color: #9999bb;
+            letter-spacing: 0.3px; transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: #fff; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 0;
+            padding: 120px 24px 80px;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.35) saturate(0.7);
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(10,10,26,0.5) 0%, rgba(10,10,26,0.85) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 680px; }
+        .hero-content .tagline {
+            font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+            color: #84a4d4; margin-bottom: 20px;
+        }
+        .hero-content h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300;
+            color: #fff; line-height: 1.3; margin-bottom: 24px;
+        }
+        .hero-content h1 strong { font-weight: 600; }
+        .hero-content p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: #b0b0c8; line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .hero-content .cta {
+            display: inline-block; margin-top: 32px;
+            background: linear-gradient(135deg, #23364a, #2a4a6a);
+            color: #fff; font-size: 14px; font-weight: 600;
+            padding: 14px 36px; border-radius: 50px;
+            letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .hero-content .cta:hover {
+            background: linear-gradient(135deg, #2a4a6a, #3a5a7a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(35,54,74,0.5);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section { padding: 80px 0; }
+        section.alt { background: rgba(255,255,255,0.02); }
+        .section-label {
+            font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+            color: #84a4d4; margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: clamp(24px, 3.5vw, 34px); font-weight: 300;
+            color: #fff; margin-bottom: 16px;
+        }
+        .section-desc {
+            font-size: 15px; color: #9999bb; line-height: 1.8;
+            margin-bottom: 48px; max-width: 600px;
+        }
+
+        /* ===== MISSION ===== */
+        #mission .mission-text p {
+            font-size: clamp(15px, 2vw, 17px);
+            color: #c8c8dd; line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 32px 28px;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(132,164,212,0.3);
+            transform: translateY(-3px);
+        }
+        .service-card .icon { font-size: 32px; margin-bottom: 16px; }
+        .service-card h3 {
+            font-size: 17px; font-weight: 600; color: #fff;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 14px; color: #9999bb; line-height: 1.7;
+        }
+
+        /* ===== APPROACH ===== */
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .approach-step {
+            text-align: center;
+            padding: 32px 20px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .approach-step .num {
+            width: 44px; height: 44px; line-height: 44px;
+            border-radius: 50%;
+            background: rgba(132,164,212,0.15);
+            color: #84a4d4;
+            font-size: 16px; font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        .approach-step h4 {
+            font-size: 15px; font-weight: 600; color: #fff;
+            margin-bottom: 8px;
+        }
+        .approach-step p {
+            font-size: 13px; color: #9999bb; line-height: 1.6;
+        }
+
+        /* ===== CLIENT LOGOS ===== */
+        .client-grid {
+            display: flex; flex-wrap: wrap; gap: 20px;
+            justify-content: center; align-items: center;
+        }
+        .client-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 16px 24px;
+            font-size: 13px; font-weight: 500;
+            color: #8888aa;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .client-item:hover {
+            color: #c8c8dd;
+            border-color: rgba(132,164,212,0.25);
+            background: rgba(255,255,255,0.06);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px; margin: 0 auto;
+        }
+        .contact-box p {
+            font-size: 14px; color: #9999bb; line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .contact-box .btn-linkedin {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #0a66c2; color: #fff;
+            font-size: 14px; font-weight: 600;
+            padding: 12px 28px; border-radius: 50px;
+            transition: background 0.2s;
+        }
+        .contact-box .btn-linkedin:hover { background: #0a7ae0; }
+        .contact-box .email-link {
+            display: block; margin-top: 16px;
+            font-size: 15px; color: #84a4d4;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 0;
+            text-align: center;
+        }
+        footer p {
+            font-size: 12px; color: #666688;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            nav .nav-links { gap: 14px; }
+            nav .nav-links a { font-size: 12px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .approach-steps { grid-template-columns: 1fr; }
+            section { padding: 60px 0; }
+            .hero { min-height: 90vh; padding: 100px 20px 60px; }
+            .contact-box { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <img src="images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#approche">Approche</a></li>
+                <li><a href="#equipe">Équipe</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="top">
+        <div class="hero-bg">
+            <img src="images/building-exterior.webp" alt="" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="tagline">Stratégie &middot; Économie &middot; Gouvernance &middot; Innovation</div>
+            <h1>Accompagner les dirigeant(e)s<br/>vers les <strong>meilleures décisions</strong></h1>
+            <p>
+                Nous outillons les équipes de direction et conseils d'administration<br/>
+                avec l'intelligence d'affaires nécessaire à des diagnostics clairs<br/>
+                et des recommandations éclairées.
+            </p>
+            <a href="#contact" class="cta">Discutons de votre mandat</a>
+        </div>
+    </section>
+
+    <!-- ===== MISSION ===== -->
+    <section id="mission">
+        <div class="container">
+            <div class="section-label">Notre Mission</div>
+            <div class="mission-text">
+                <p>
+                    La mission de Fragata Gosselin est d'accompagner les dirigeant(e)s dans leur 
+                    processus décisionnels et leur fournir les connaissances requises pour prendre 
+                    les meilleures décisions possibles.
+                </p>
+                <p>
+                    Nous souhaitons insuffler ambition, focus et alignement aux équipes de direction 
+                    et conseils d'administration avec lesquels nous travaillons.
+                </p>
+                <p>
+                    Cela est fait en les informant sur les meilleures pratiques, outils d'analyse et 
+                    connaissances pertinentes liées à leurs enjeux, et en utilisant cette intelligence 
+                    d'affaires pour poser des diagnostics clairs et émettre les meilleures recommandations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="alt">
+        <div class="container">
+            <div class="section-label">Nos Services</div>
+            <h2 class="section-title">Une expertise intégrée au service<br/>de vos enjeux stratégiques</h2>
+            <p class="section-desc">
+                Nous combinons rigueur analytique, vision stratégique et connaissance des 
+                organisations pour offrir un accompagnement sur mesure.
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">🎯</div>
+                    <h3>Stratégie</h3>
+                    <p>
+                        Planification stratégique, diagnostics organisationnels, feuilles de route 
+                        et accompagnement à l'exécution. Nous aidons les organisations à définir 
+                        leur cap et à mobiliser leurs équipes autour d'une vision claire.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📊</div>
+                    <h3>Économie &amp; Intelligence d'affaires</h3>
+                    <p>
+                        Analyses économiques, études d'impact, veille stratégique sectorielle et 
+                        benchmarking. Une rigueur quantitative au service de décisions éclairées.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🏛️</div>
+                    <h3>Gouvernance</h3>
+                    <p>
+                        Accompagnement des conseils d'administration, optimisation des structures 
+                        décisionnelles et des processus de gouvernance. Alignement entre la vision 
+                        stratégique et l'exécution.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">💡</div>
+                    <h3>Innovation &amp; Prospective</h3>
+                    <p>
+                        Veille prospective, transformation organisationnelle, analyse des tendances 
+                        émergentes et des disruptions sectorielles. Anticiper pour mieux décider.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📋</div>
+                    <h3>Mandats sur mesure</h3>
+                    <p>
+                        Études sectorielles, analyses comparatives, recherche appliquée, rédaction 
+                        de plans stratégiques et accompagnement personnalisé. Chaque mandat est unique.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🔍</div>
+                    <h3>Veille stratégique</h3>
+                    <p>
+                        Un service automatisé de veille quotidienne couvrant géopolitique, économie, 
+                        technologie et finance. Une synthèse opérationnelle livrée chaque matin 
+                        pour rester à l'affût des tendances clés.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPROCHE ===== -->
+    <section id="approche">
+        <div class="container">
+            <div class="section-label">Notre Approche</div>
+            <h2 class="section-title">Rigueur, indépendance et impact</h2>
+            <p class="section-desc">
+                Notre méthode combine analyse approfondie, jugement indépendant et 
+                recommandations actionnables — de la collecte d'information jusqu'à la mise en œuvre.
+            </p>
+
+            <div class="approach-steps">
+                <div class="approach-step">
+                    <div class="num">1</div>
+                    <h4>Diagnostic</h4>
+                    <p>Compréhension en profondeur des enjeux, du contexte et des objectifs de l'organisation.</p>
+                </div>
+                <div class="approach-step">
+                    <div class="num">2</div>
+                    <h4>Analyse</h4>
+                    <p>Collecte de données, recherche, benchmarking et mobilisation de notre intelligence d'affaires.</p>
+                </div>
+                <div class="approach-step">
+                    <div class="num">3</div>
+                    <h4>Recommandations</h4>
+                    <p>Diagnostics clairs, options stratégiques et recommandations concrètes et priorisées.</p>
+                </div>
+                <div class="approach-step">
+                    <div class="num">4</div>
+                    <h4>Accompagnement</h4>
+                    <p>Soutien à l'exécution, suivi des indicateurs et ajustements continus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS ===== -->
+    <section id="clients" class="alt">
+        <div class="container">
+            <div class="section-label">Ils Nous Font Confiance</div>
+            <h2 class="section-title">Une expérience diversifiée<br/>dans tous les secteurs</h2>
+            <p class="section-desc">
+                Nous accompagnons des organisations publiques, parapubliques et privées 
+                dans des mandats stratégiques à travers le Québec et le Canada.
+            </p>
+            <div class="client-grid">
+                <span class="client-item">Développement économique Longueuil</span>
+                <span class="client-item">Banque Nationale</span>
+                <span class="client-item">Lune Rouge</span>
+                <span class="client-item">Tourisme Montréal</span>
+                <span class="client-item">Drummondville</span>
+                <span class="client-item">CCMM</span>
+                <span class="client-item">BNP Paribas</span>
+                <span class="client-item">Ubisoft</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ÉQUIPE ===== -->
+    <section id="equipe" class="alt">
+        <div class="container">
+            <div class="section-label">Notre Équipe</div>
+            <h2 class="section-title">Les personnes derrière Fragata Gosselin</h2>
+            <p class="section-desc">
+                Une équipe passionnée par la stratégie, l'analyse et l'accompagnement
+                des organisations vers l'excellence.
+            </p>
+
+            <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/yuani-fragata.webp" alt="Yuani Fragata" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
+                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Yuani Fragata</h3>
+                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef des opérations</p>
+                </div>
+                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/francis-gosselin.webp" alt="Francis Gosselin" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
+                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Francis Gosselin</h3>
+                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef de la stratégie</p>
+                </div>
+                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/anais-vignaux.webp" alt="Anaïs Vignaux" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
+                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Anaïs Vignaux</h3>
+                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Analyste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Parlons de votre projet</h2>
+            <div class="contact-box">
+                <p>
+                    Vous avez un mandat en tête, une problématique à explorer ou simplement 
+                    le souhait d'échanger sur vos enjeux stratégiques ? Nous sommes à votre écoute.
+                </p>
+                <a class="btn-linkedin" href="https://www.linkedin.com/company/fragatagosselin/" target="_blank" rel="noreferrer noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    Suivez-nous sur LinkedIn
+                </a>
+                <a class="email-link" href="mailto:info@fragatagosselin.com">info@fragatagosselin.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Fragata Gosselin &mdash; Stratégie &middot; Économie &middot; Gouvernance &middot; Innovation</p>
+        </div>
+    </footer>
+
+</body>
+</html>
