@@ -7,20 +7,31 @@
     <link rel="icon" type="image/svg+xml" href="images/fragata-gosselin.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --marine: #23364A;
+            --ocean: #42556F;
+            --sable: #D19469;
+            --ivoire: #F4F1F0;
+            --bg-dark: #0a0a1a;
+            --text-light: #e0e0e0;
+            --text-muted: #9999bb;
+        }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a1a;
-            color: #e0e0e0;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-        a { color: #84a4d4; text-decoration: none; transition: color 0.2s; }
-        a:hover { color: #a8c4f0; }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
 
         /* ===== CONTAINER ===== */
         .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
@@ -31,7 +42,7 @@
             background: rgba(10,10,26,0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(66,85,111,0.2);
             padding: 0 24px;
         }
         nav .nav-inner {
@@ -41,16 +52,16 @@
         }
         nav .logo {
             display: flex; align-items: center; gap: 10px;
-            font-weight: 600; font-size: 14px; color: #fff;
+            font-weight: 600; font-size: 14px; color: var(--ivoire);
             letter-spacing: 0.5px;
         }
         nav .logo img { height: 36px; width: auto; }
         nav .nav-links { display: flex; gap: 24px; list-style: none; }
         nav .nav-links a {
-            font-size: 13px; font-weight: 500; color: #9999bb;
+            font-size: 13px; font-weight: 500; color: var(--text-muted);
             letter-spacing: 0.3px; transition: color 0.2s;
         }
-        nav .nav-links a:hover { color: #fff; }
+        nav .nav-links a:hover { color: var(--sable); }
 
         /* ===== HERO ===== */
         .hero {
@@ -76,13 +87,17 @@
         .hero-content { position: relative; z-index: 2; max-width: 680px; }
         .hero-content .tagline {
             font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
-            color: #84a4d4; margin-bottom: 20px;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--sable); margin-bottom: 20px;
+            letter-spacing: 5px;
         }
         .hero-content h1 {
             font-size: clamp(28px, 5vw, 48px); font-weight: 300;
-            color: #fff; line-height: 1.3; margin-bottom: 24px;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire); line-height: 1.2; margin-bottom: 24px;
+            letter-spacing: 1px;
         }
-        .hero-content h1 strong { font-weight: 600; }
+        .hero-content h1 strong { font-weight: 700; color: #fff; }
         .hero-content p {
             font-size: clamp(15px, 2vw, 18px);
             color: #b0b0c8; line-height: 1.8;
@@ -90,38 +105,43 @@
         }
         .hero-content .cta {
             display: inline-block; margin-top: 32px;
-            background: linear-gradient(135deg, #23364a, #2a4a6a);
-            color: #fff; font-size: 14px; font-weight: 600;
+            background: var(--sable);
+            color: #1a1a1a; font-size: 14px; font-weight: 700;
             padding: 14px 36px; border-radius: 50px;
-            letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.1);
+            letter-spacing: 0.5px; border: none;
             transition: all 0.3s;
         }
         .hero-content .cta:hover {
-            background: linear-gradient(135deg, #2a4a6a, #3a5a7a);
+            background: #e0a878;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(35,54,74,0.5);
+            box-shadow: 0 8px 24px rgba(209,148,105,0.3);
         }
 
         /* ===== SECTION COMMON ===== */
         section { padding: 80px 0; }
         section.alt { background: rgba(255,255,255,0.02); }
         .section-label {
-            font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
-            color: #84a4d4; margin-bottom: 8px;
+            font-size: 14px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--sable); margin-bottom: 8px;
+            letter-spacing: 4px;
         }
         .section-title {
-            font-size: clamp(24px, 3.5vw, 34px); font-weight: 300;
-            color: #fff; margin-bottom: 16px;
+            font-size: clamp(28px, 3.5vw, 36px); font-weight: 400;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire); margin-bottom: 16px;
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
         .section-desc {
-            font-size: 15px; color: #9999bb; line-height: 1.8;
+            font-size: 15px; color: var(--text-muted); line-height: 1.8;
             margin-bottom: 48px; max-width: 600px;
         }
 
         /* ===== MISSION ===== */
         #mission .mission-text p {
             font-size: clamp(15px, 2vw, 17px);
-            color: #c8c8dd; line-height: 1.8;
+            color: var(--ivoire); line-height: 1.8;
             margin-bottom: 16px;
         }
 
@@ -138,18 +158,25 @@
             padding: 32px 28px;
             transition: all 0.3s;
         }
+        .service-card {
+            background: rgba(66,85,111,0.06);
+            border: 1px solid rgba(66,85,111,0.2);
+        }
         .service-card:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(132,164,212,0.3);
+            background: rgba(66,85,111,0.12);
+            border-color: rgba(209,148,105,0.3);
             transform: translateY(-3px);
         }
         .service-card .icon { font-size: 32px; margin-bottom: 16px; }
         .service-card h3 {
-            font-size: 17px; font-weight: 600; color: #fff;
+            font-size: 20px; font-weight: 500;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire);
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
         .service-card p {
-            font-size: 14px; color: #9999bb; line-height: 1.7;
+            font-size: 14px; color: var(--text-muted); line-height: 1.7;
         }
 
         /* ===== APPROACH ===== */
@@ -165,20 +192,27 @@
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.05);
         }
+        .approach-step {
+            background: rgba(66,85,111,0.06);
+            border: 1px solid rgba(66,85,111,0.2);
+        }
         .approach-step .num {
             width: 44px; height: 44px; line-height: 44px;
             border-radius: 50%;
-            background: rgba(132,164,212,0.15);
-            color: #84a4d4;
+            background: var(--sable);
+            color: #1a1a1a;
             font-size: 16px; font-weight: 700;
             margin: 0 auto 16px;
         }
         .approach-step h4 {
-            font-size: 15px; font-weight: 600; color: #fff;
+            font-size: 18px; font-weight: 500;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire);
             margin-bottom: 8px;
+            letter-spacing: 1px;
         }
         .approach-step p {
-            font-size: 13px; color: #9999bb; line-height: 1.6;
+            font-size: 13px; color: var(--text-muted); line-height: 1.6;
         }
 
         /* ===== CLIENT LOGOS ===== */
@@ -196,46 +230,51 @@
             text-align: center;
             transition: all 0.3s;
         }
+        .client-item {
+            background: rgba(66,85,111,0.06);
+            border: 1px solid rgba(66,85,111,0.2);
+        }
         .client-item:hover {
-            color: #c8c8dd;
-            border-color: rgba(132,164,212,0.25);
-            background: rgba(255,255,255,0.06);
+            color: var(--sable);
+            border-color: rgba(209,148,105,0.3);
+            background: rgba(66,85,111,0.12);
         }
 
         /* ===== CONTACT ===== */
         .contact-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(66,85,111,0.06);
+            border: 1px solid rgba(66,85,111,0.2);
             border-radius: 14px;
             padding: 40px;
             text-align: center;
             max-width: 500px; margin: 0 auto;
         }
         .contact-box p {
-            font-size: 14px; color: #9999bb; line-height: 1.8;
+            font-size: 14px; color: var(--text-muted); line-height: 1.8;
             margin-bottom: 24px;
         }
         .contact-box .btn-linkedin {
             display: inline-flex; align-items: center; gap: 8px;
-            background: #0a66c2; color: #fff;
+            background: var(--ocean); color: var(--ivoire);
             font-size: 14px; font-weight: 600;
             padding: 12px 28px; border-radius: 50px;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .contact-box .btn-linkedin:hover { background: #0a7ae0; }
+        .contact-box .btn-linkedin:hover { background: var(--marine); }
         .contact-box .email-link {
             display: block; margin-top: 16px;
-            font-size: 15px; color: #84a4d4;
+            font-size: 15px; color: var(--sable);
         }
 
         /* ===== FOOTER ===== */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(66,85,111,0.3);
             padding: 32px 0;
             text-align: center;
         }
         footer p {
-            font-size: 12px; color: #666688;
+            font-size: 12px; color: var(--ocean);
             letter-spacing: 0.5px;
         }
 
@@ -449,20 +488,20 @@
             </p>
 
             <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
-                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
-                    <img src="images/yuani-fragata.webp" alt="Yuani Fragata" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
-                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Yuani Fragata</h3>
-                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef des opérations</p>
+                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/yuani-fragata.webp" alt="Yuani Fragata" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(209,148,105,0.2);" />
+                    <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Yuani Fragata</h3>
+                    <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 0;">Associé &amp; Chef des opérations</p>
                 </div>
-                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
-                    <img src="images/francis-gosselin.webp" alt="Francis Gosselin" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
-                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Francis Gosselin</h3>
-                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef de la stratégie</p>
+                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/francis-gosselin.webp" alt="Francis Gosselin" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(209,148,105,0.2);" />
+                    <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Francis Gosselin</h3>
+                    <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 0;">Associé &amp; Chef de la stratégie</p>
                 </div>
-                <div class="team-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
-                    <img src="images/anais-vignaux.webp" alt="Anaïs Vignaux" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(255,255,255,0.1);" />
-                    <h3 style="font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px;">Anaïs Vignaux</h3>
-                    <p style="font-size: 13px; color: #84a4d4; font-weight: 500; margin-bottom: 0;">Analyste</p>
+                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 32px 24px; text-align: center; transition: all 0.3s;">
+                    <img src="images/anais-vignaux.webp" alt="Anaïs Vignaux" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid rgba(209,148,105,0.2);" />
+                    <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Anaïs Vignaux</h3>
+                    <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 0;">Analyste</p>
                 </div>
             </div>
         </div>
