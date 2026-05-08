@@ -238,23 +238,40 @@
             justify-content: center; align-items: center;
         }
         .client-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
+            display: inline-block;
+            background: rgba(66,85,111,0.06);
+            border: 1px solid rgba(209,148,105,0.3);
             border-radius: 10px;
             padding: 16px 24px;
             font-size: 13px; font-weight: 500;
-            color: #8888aa;
+            color: var(--text-muted);
             text-align: center;
+            text-decoration: none;
             transition: all 0.3s;
-        }
-        .client-item {
-            background: rgba(66,85,111,0.06);
-            border: 1px solid rgba(66,85,111,0.2);
         }
         .client-item:hover {
             color: var(--sable);
-            border-color: rgba(209,148,105,0.3);
+            border-color: var(--text-muted);
             background: rgba(66,85,111,0.12);
+        }
+
+        /* ===== TEAM CARDS ===== */
+        .team-card {
+            display: block;
+            text-decoration: none;
+        }
+        .team-card:hover {
+            border-color: rgba(209,148,105,0.3) !important;
+        }
+
+        /* ===== COLLABORATEUR CARDS ===== */
+        .collab-card {
+            display: block;
+            text-decoration: none;
+            border: 1px solid rgba(209,148,105,0.3) !important;
+        }
+        .collab-card:hover {
+            border-color: var(--text-muted) !important;
         }
 
         /* ===== MISSION ===== */
@@ -500,18 +517,26 @@
                 dans des mandats stratégiques à travers le Québec et le Canada.
             </p>
             <div class="client-grid">
-                <span class="client-item">Développement économique Longueuil</span>
-                <span class="client-item">Orchestre symphonique de Montréal</span>
-                <span class="client-item">Ville de Montréal</span>
-                <span class="client-item">Hôtels Le Germain</span>
-                <span class="client-item">Connexion Laurentides</span>
-                <span class="client-item">MUTEK</span>
-                <span class="client-item">ELEKTRA</span>
-                <span class="client-item">Suoni Per Il Popolo</span>
-                <span class="client-item">Communauté métropolitaine de Montréal</span>
-                <span class="client-item">Banque Nationale</span>
-                <span class="client-item">Lune Rouge</span>
-                <span class="client-item">Tourisme Montréal</span>
+                <a class="client-item" href="https://www.delagglo.ca" target="_blank" rel="noopener">Développement économique Longueuil</a>
+                <a class="client-item" href="https://www.osm.ca" target="_blank" rel="noopener">Orchestre symphonique de Montréal</a>
+                <a class="client-item" href="https://montreal.ca" target="_blank" rel="noopener">Ville de Montréal</a>
+                <a class="client-item" href="https://www.germainhotels.com" target="_blank" rel="noopener">Hôtels Le Germain</a>
+                <a class="client-item" href="https://connexionlaurentides.com" target="_blank" rel="noopener">Connexion Laurentides</a>
+                <a class="client-item" href="https://mutek.org" target="_blank" rel="noopener">MUTEK</a>
+                <a class="client-item" href="https://elektramontreal.ca" target="_blank" rel="noopener">ELEKTRA</a>
+                <a class="client-item" href="https://www.suoniperilpopolo.org" target="_blank" rel="noopener">Suoni Per Il Popolo</a>
+                <a class="client-item" href="https://cmm.quebec" target="_blank" rel="noopener">Communauté métropolitaine de Montréal</a>
+                <a class="client-item" href="https://www.bnc.ca" target="_blank" rel="noopener">Banque Nationale</a>
+                <a class="client-item" href="https://lunerouge.com" target="_blank" rel="noopener">Lune Rouge</a>
+                <a class="client-item" href="https://www.mtl.org" target="_blank" rel="noopener">Tourisme Montréal</a>
+                <a class="client-item" href="https://www.ubisoft.com" target="_blank" rel="noopener">Ubisoft</a>
+                <a class="client-item" href="https://www.eidosmontreal.com" target="_blank" rel="noopener">Eidos</a>
+                <a class="client-item" href="https://group.bnpparibas" target="_blank" rel="noopener">BNP Paribas</a>
+                <a class="client-item" href="https://ici.radio-canada.ca" target="_blank" rel="noopener">CBC / Radio-Canada</a>
+                <a class="client-item" href="https://xnquebec.ca" target="_blank" rel="noopener">Xn Québec</a>
+                <a class="client-item" href="https://www.pmemtl.com" target="_blank" rel="noopener">PME MTL</a>
+                <a class="client-item" href="https://www.drummondville.ca" target="_blank" rel="noopener">Ville de Drummondville</a>
+                <a class="client-item" href="https://www.hydroquebec.com" target="_blank" rel="noopener">Hydro-Québec</a>
             </div>
         </div>
     </section>
@@ -527,21 +552,21 @@
             </p>
 
             <div class="team-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 720px; margin: 0 auto;">
-                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                <a class="team-card" href="https://www.linkedin.com/in/monsieurgustave/" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/francis-gosselin.webp" alt="Francis Gosselin" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #9999bb;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Francis Gosselin</h3>
                     <p style="font-size: 13px; color: #9999bb; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef de la stratégie</p>
-                </div>
-                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                </a>
+                <a class="team-card" href="https://www.linkedin.com/in/yuani/" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/yuani-fragata.webp" alt="Yuani Fragata" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #9999bb;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Yuani Fragata</h3>
                     <p style="font-size: 13px; color: #9999bb; font-weight: 500; margin-bottom: 0;">Associé &amp; Chef des opérations</p>
-                </div>
-                <div class="team-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                </a>
+                <a class="team-card" href="https://www.linkedin.com/in/anais-vignaux/" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/anais-vignaux.webp" alt="Anaïs Vignaux" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #9999bb;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Anaïs Vignaux</h3>
                     <p style="font-size: 13px; color: #9999bb; font-weight: 500; margin-bottom: 0;">Analyste</p>
-                </div>
+                </a>
             </div>
 
             <!-- ===== COLLABORATEURS ===== -->
@@ -551,30 +576,30 @@
             </p>
 
             <div class="collab-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 600px; margin: 0 auto;">
-                <div class="collab-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                <a class="collab-card" href="https://www.pragmatastrategies.com" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/gabriele-guay.webp" alt="Gabrièle Guay" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #D19469;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Gabrièle Guay</h3>
                     <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 4px;">Consultante</p>
-                    <a href="https://www.pragmatastrategies.com" target="_blank" rel="noreferrer noopener" style="font-size: 12px; color: var(--ocean); text-decoration: none; transition: color 0.2s;">Pragmata Stratégies →</a>
-                </div>
-                <div class="collab-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                    <p style="font-size: 12px; color: var(--ocean); margin-bottom: 0;">Pragmata Stratégies</p>
+                </a>
+                <a class="collab-card" href="https://professeurs.uqam.ca/professeur/arseneault.paul/" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/paul-arsenault.webp" alt="Paul Arsenault" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #D19469;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Paul Arsenault</h3>
                     <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 4px;">Consultant spécialisé en tourisme</p>
-                    <a href="https://professeurs.uqam.ca/professeur/arseneault.paul/" target="_blank" rel="noreferrer noopener" style="font-size: 12px; color: var(--ocean); text-decoration: none; transition: color 0.2s;">UQAM →</a>
-                </div>
-                <div class="collab-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                    <p style="font-size: 12px; color: var(--ocean); margin-bottom: 0;">UQAM</p>
+                </a>
+                <a class="collab-card" href="https://www.guylaineprovencher.ca" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/guylaine-provencher.webp" alt="Guylaine Provencher" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #D19469;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Guylaine Provencher</h3>
                     <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 4px;">Designer</p>
-                    <a href="https://www.guylaineprovencher.ca" target="_blank" rel="noreferrer noopener" style="font-size: 12px; color: var(--ocean); text-decoration: none; transition: color 0.2s;">guylaineprovencher.ca →</a>
-                </div>
-                <div class="collab-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
+                    <p style="font-size: 12px; color: var(--ocean); margin-bottom: 0;">guylaineprovencher.ca</p>
+                </a>
+                <a class="collab-card" href="https://www.michelenicole.info" target="_blank" rel="noopener" style="background: rgba(66,85,111,0.06); border-radius: 14px; padding: 28px 16px; text-align: center; transition: all 0.3s;">
                     <img src="images/michele-provencher.webp" alt="Michèle Provencher" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 2px solid #D19469;" />
                     <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 4px; letter-spacing: 1px;">Michèle Provencher</h3>
                     <p style="font-size: 13px; color: var(--sable); font-weight: 500; margin-bottom: 4px;">Rédactrice et spécialiste en communications</p>
-                    <a href="https://www.michelenicole.info" target="_blank" rel="noreferrer noopener" style="font-size: 12px; color: var(--ocean); text-decoration: none; transition: color 0.2s;">michelenicole.info →</a>
-                </div>
+                    <p style="font-size: 12px; color: var(--ocean); margin-bottom: 0;">michelenicole.info</p>
+                </a>
             </div>
         </div>
     </section>
