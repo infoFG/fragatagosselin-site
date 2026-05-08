@@ -264,6 +264,37 @@
             border-color: rgba(209,148,105,0.3) !important;
         }
 
+        /* ===== BLOG CARDS ===== */
+        .blog-card {
+            text-decoration: none;
+        }
+        .blog-card .blog-date { color: var(--ocean); }
+        .blog-card h3 { color: var(--ivoire); }
+        .blog-card p { color: var(--text-muted); }
+        .blog-card .blog-tag {
+            display: inline-block;
+            font-size: 9px; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--sable);
+            border: 1px solid var(--sable);
+            border-radius: 4px;
+            padding: 1px 6px;
+            margin-top: 6px;
+            align-self: center;
+        }
+        .blog-card:hover {
+            border-color: rgba(209,148,105,0.3);
+        }
+        .blog-card:hover .blog-date,
+        .blog-card:hover h3,
+        .blog-card:hover p {
+            color: var(--sable);
+        }
+        .blog-card:hover .blog-tag {
+            color: var(--text-muted);
+            border-color: var(--text-muted);
+        }
+
         /* ===== COLLABORATEUR CARDS ===== */
         .collab-card {
             display: block;
@@ -613,22 +644,22 @@
 
             <div class="blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 720px; margin: 0 auto;">
                 <a href="articles/quand-les-contraintes-deviennent-votre-meilleur-avantage-competitif.html" class="blog-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 20px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; justify-content: center;">
-                    <div style="font-size: 12px; color: var(--ocean); margin-bottom: 8px;">8 mai 2026</div>
-                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px;">Contraintes &amp; avantage compétitif</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 4px;">Ce que la renaissance de LEGO nous apprend sur le pouvoir des limites</p>
-                    <span style="display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sable);border:1px solid var(--sable);border-radius:4px;padding:1px 6px;margin-top:6px;align-self:center;">Stratégie</span>
+                    <div class="blog-date" style="font-size: 12px; margin-bottom: 8px;">8 mai 2026</div>
+                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; margin-bottom: 8px; letter-spacing: 1px;">Contraintes &amp; avantage compétitif</h3>
+                    <p style="font-size: 13px; line-height: 1.5; margin-bottom: 4px;">Ce que la renaissance de LEGO nous apprend sur le pouvoir des limites</p>
+                    <span class="blog-tag">Stratégie</span>
                 </a>
                 <a href="articles/comment-gerer-limprevisibilite-dans-une-entreprise.html" class="blog-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 20px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; justify-content: center;">
-                    <div style="font-size: 12px; color: var(--ocean); margin-bottom: 8px;">25 février 2026</div>
-                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px;">Gérer l'imprévisibilité</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 4px;">Ce que Toyota nous apprend sur la résilience d'entreprise</p>
-                    <span style="display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sable);border:1px solid var(--sable);border-radius:4px;padding:1px 6px;margin-top:6px;align-self:center;">Stratégie</span>
+                    <div class="blog-date" style="font-size: 12px; margin-bottom: 8px;">25 février 2026</div>
+                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; margin-bottom: 8px; letter-spacing: 1px;">Gérer l'imprévisibilité</h3>
+                    <p style="font-size: 13px; line-height: 1.5; margin-bottom: 4px;">Ce que Toyota nous apprend sur la résilience d'entreprise</p>
+                    <span class="blog-tag">Stratégie</span>
                 </a>
                 <a href="articles/la-neige-nuisance-ou-alliee.html" class="blog-card" style="background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2); border-radius: 14px; padding: 28px 20px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; justify-content: center;">
-                    <div style="font-size: 12px; color: var(--ocean); margin-bottom: 8px;">7 janvier 2026</div>
-                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px;">La neige, nuisance ou alliée ?</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 4px;">Quand la contrainte devient levier d'innovation durable</p>
-                    <span style="display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sable);border:1px solid var(--sable);border-radius:4px;padding:1px 6px;margin-top:6px;align-self:center;">Développement durable</span>
+                    <div class="blog-date" style="font-size: 12px; margin-bottom: 8px;">7 janvier 2026</div>
+                    <h3 style="font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; margin-bottom: 8px; letter-spacing: 1px;">La neige, nuisance ou alliée ?</h3>
+                    <p style="font-size: 13px; line-height: 1.5; margin-bottom: 4px;">Quand la contrainte devient levier d'innovation durable</p>
+                    <span class="blog-tag">Développement durable</span>
                 </a>
             </div>
 
