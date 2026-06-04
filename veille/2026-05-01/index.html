@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Vendredi 1 mai 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px; cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0; flex-direction: column;
+            align-items: flex-end; background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .page-header {
+            padding: 100px 0 40px; text-align: center;
+        }
+        .page-header .tagline {
+            font-size: 20px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif; color: var(--sable); margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300; font-family: 'Bebas Neue', sans-serif;
+            color: var(--ivoire); line-height: 1.3; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .page-header p { font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .veille-content { padding: 0 0 60px; }
+        .veille-content h2 { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px; }
+        .veille-content h3 { font-size: 17px; font-weight: 500; color: var(--sable); margin-bottom: 12px; margin-top: 24px; }
+        .veille-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+        .veille-content .back-link { display: inline-block; font-size: 13px; color: var(--sable); padding: 10px 0; }
+        .veille-content .back-link:hover { color: #e0a878; }
+
+        /* Veille article cards */
+        .section-block {
+            background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2);
+            border-radius: 14px; padding: 28px; margin-bottom: 24px;
+        }
+        .section-block h3 {
+            font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif;
+            margin-bottom: 16px; letter-spacing: 2px; margin-top: 0;
+        }
+        .article-item {
+            border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 0;
+        }
+        .article-item:first-child { border-top: none; padding-top: 0; }
+        .article-item h4 { font-size: 15px; font-weight: 600; color: var(--ivoire); margin-bottom: 6px; line-height: 1.4; }
+        .article-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 6px; }
+        .article-item .src { font-size: 11px; color: var(--ocean); }
+        .article-item .article-link {
+            display: inline-block; font-size: 12px; color: var(--sable); border: 1px solid var(--sable);
+            border-radius: 4px; padding: 2px 10px; margin-top: 4px; transition: all 0.2s;
+        }
+        .article-item .article-link:hover { background: var(--sable); color: #fff; }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 80px 0 24px; }
+            .section-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">VEILLE STRATÉGIQUE</div>
+            <h1>Vendredi 1 mai 2026</h1>
+            <p><a href="../archives/" class="back-link">← Retour aux archives</a></p>
+        </div>
+    </div>
+
+    <section class="veille-content">
+        <div class="container">
+<div class="badge">Actualités &lt; 24</div>
+</div>
+
+
+<div class="section-block" style="background: #1a1a2e; border-left-color: #e94560;">
+<div >
+<span >🌍</span>
+<h2 >GÉOPOLITIQUE</h2>
+<span  style="color: #e94560;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #e94560;">1</span>
+<div >Ce que vous avez manqué cette nuit | Iran, Royaume-Uni, Chine</div>
+<div class="article-summary">La Terre continue de tourner pendant que vous dormez. Voici trois nouvelles à signaler.</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/2026-05-01/ce-que-vous-avez-manque-cette-nuit/iran-royaume-uni-chine.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">2</span>
+<div >Guerre en Ukraine | Des robots terrestres au front</div>
+<div class="article-summary">Les robots terrestres se multiplient à l’instar des drones sur la ligne de front en Ukraine, qui est devenue depuis le début de la guerre avec la R...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/2026-05-01/guerre-en-ukraine/des-robots-terrestres-au-front.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">3</span>
+<div >Myanmar ex-leader Aung San Suu Kyi moved to house arrest, military says</div>
+<div class="article-summary">The Nobel Peace Prize laureate has been in detention since she was ousted in a military coup in 2021.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/cz72j8eex4eo?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">4</span>
+<div >The global scramble for ports</div>
+<div class="article-summary">The investment frenzy is driven by anxiety about China’s tightening grip on supply chains</div><div class="article-source">Source: The Economist International</div><a href="https://www.economist.com/international/2026/04/30/the-global-scramble-for-ports" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #16213e; border-left-color: #0f3460;">
+<div >
+<span >📈</span>
+<h2 >ÉCONOMIE</h2>
+<span  style="color: #0f3460;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #0f3460;">1</span>
+<div >Extension du pipeline Bridger | Danielle Smith salue l’octroi du permis</div>
+<div class="article-summary">La première ministre de l’Alberta, Danielle Smith, a indiqué qu’une autorisation cruciale pour un projet d’oléoduc transfrontalier visant à achemin...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/2026-04-30/extension-du-pipeline-bridger/danielle-smith-salue-l-octroi-du-permis.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">2</span>
+<div >Next Africa:Why EV Adoption Is Surging On the Continent(Podcast)</div>
+<div class="article-summary">Source: Bloomberg, 0:00</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-05-01/next-africa-why-ev-adoption-is-surging-on-the-continent-podcast" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">3</span>
+<div >Trump to Maintain Pressure on Iran, Apple Tops Estimates, More</div>
+<div class="article-summary">Source: Bloomberg, 0:00</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-05-01/trump-to-maintain-pressure-on-iran-apple-tops-estimates-more" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">4</span>
+<div >Bloomberg Daybreak: Trump Vows Iran Pressure (Podcast)</div>
+<div class="article-summary">Source: Bloomberg, 14:26</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-05-01/bloomberg-daybreak-trump-vows-iran-pressure-podcast" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">5</span>
+<div >UK house price rise defies economic impact of Iran war</div>
+<div class="article-summary">Unexpected increase in April supported by relative strength in household finances</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/afb4cb9d-16b1-42fe-b638-77e311aca502" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #1b2430; border-left-color: #6c63ff;">
+<div >
+<span >🤖</span>
+<h2 >TECHNOLOGIE</h2>
+<span  style="color: #6c63ff;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #6c63ff;">1</span>
+<div >The Bangui operation: A story of blood, science and biomedical exploitation</div>
+<div class="article-summary">A secret HIV research project carried out in the Central African Republic in the 1990s sheds light on how biomedical extractivism operates.</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/the-bangui-operation-a-story-of-blood-science-and-biomedical-exploitation-276914" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">2</span>
+<div >Pourquoi l’autopromotion ne se résume pas à se vanter. C’est un levier d’apprentissage et d’adaptation</div>
+<div class="article-summary">L’humilité fait les grands leaders ? Pas si sûr. Une étude révèle que l’autopromotion stratégique génère des rétroactions essentielles à l’adaptation.</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/pourquoi-lautopromotion-ne-se-resume-pas-a-se-vanter-cest-un-levier-dapprentissage-et-dadaptation-276131" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">3</span>
+<div >This Treatment Could Reverse Osteoarthritis Joint Damage With a Single Injection</div>
+<div class="article-summary">Osteoarthritis has no cure, but researchers have developed new therapies that help aging or damaged joints repair themselves in a matter of weeks.</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/osteoarthritis-joint-damage-single-injection-treatment/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">4</span>
+<div >This Indigenous Language Survived Russian Occupation. Can It Survive YouTube?</div>
+<div class="article-summary">YouTube’s search and recommendation algorithms are driving children to Russian-language content even when they seek out videos in Kyrgyz, creating ...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/youtube-promote-russian-language-kyrgyzstan/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">5</span>
+<div >ChatGPT Images 2.0 is a hit in India, but not a big winner elsewhere, yet</div>
+<div class="article-summary">Users in India are embracing ChatGPT Images 2.0 for creative, personal visuals — from avatars to cinematic portraits.</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/04/30/chatgpt-images-2-0-is-a-hit-in-india-but-not-a-big-winner-elsewhere-yet/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #0f0f1a; border-left-color: #00b894;">
+<div >
+<span >💰</span>
+<h2 >FINANCE</h2>
+<span  style="color: #00b894;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #00b894;">1</span>
+<div >UK Billionaire’s Family Office Targets More Private Equity Exits</div>
+<div class="article-summary">The billionaire UK founder of a home-repair business acquired by Brookfield Asset Management is working to ramp up his family office’s private equi...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-05-01/uk-billionaire-s-family-office-targets-more-private-equity-exits" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">2</span>
+<div >AI Agents Are Becoming Day Traders, But Gains Are Elusive</div>
+<div class="article-summary">Jake Nesler’s AI trading bot got one big decision right in its first week. It ignored the chase.</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-05-01/ai-tools-for-stock-trading-put-up-mixed-results" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">3</span>
+<div >Bank of America resets Microsoft stock forecast after earnings</div>
+<div class="article-source">Source: Yahoo Finance</div><a href="https://finance.yahoo.com/markets/stocks/articles/bank-america-resets-microsoft-stock-010300179.html" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">4</span>
+<div >Gold Declines as Trump Vows to Maintain Pressure on Iran</div>
+<div class="article-summary">Gold fell as traders weighed a standoff between the US and Iran that’s dashed expectations for rate cuts from central banks across the world.</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-04-30/gold-steadies-after-advancing-on-japan-s-yen-intervention" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div></div>
+
+
+</div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            var h = document.getElementById('hamburger');
+            var n = document.getElementById('navLinks');
+            if (h && n) {
+                h.addEventListener('click', function() { h.classList.toggle('active'); n.classList.toggle('open'); });
+                n.querySelectorAll('a').forEach(function(l) {
+                    l.addEventListener('click', function() { h.classList.remove('active'); n.classList.remove('open'); });
+                });
+                document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { h.classList.remove('active'); n.classList.remove('open'); } });
+            }
+        })();
+    </script>
+
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>© 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>

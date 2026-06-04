@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Vendredi 8 mai 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px; cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0; flex-direction: column;
+            align-items: flex-end; background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .page-header {
+            padding: 100px 0 40px; text-align: center;
+        }
+        .page-header .tagline {
+            font-size: 20px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif; color: var(--sable); margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300; font-family: 'Bebas Neue', sans-serif;
+            color: var(--ivoire); line-height: 1.3; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .page-header p { font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .veille-content { padding: 0 0 60px; }
+        .veille-content h2 { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px; }
+        .veille-content h3 { font-size: 17px; font-weight: 500; color: var(--sable); margin-bottom: 12px; margin-top: 24px; }
+        .veille-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+        .veille-content .back-link { display: inline-block; font-size: 13px; color: var(--sable); padding: 10px 0; }
+        .veille-content .back-link:hover { color: #e0a878; }
+
+        /* Veille article cards */
+        .section-block {
+            background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2);
+            border-radius: 14px; padding: 28px; margin-bottom: 24px;
+        }
+        .section-block h3 {
+            font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif;
+            margin-bottom: 16px; letter-spacing: 2px; margin-top: 0;
+        }
+        .article-item {
+            border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 0;
+        }
+        .article-item:first-child { border-top: none; padding-top: 0; }
+        .article-item h4 { font-size: 15px; font-weight: 600; color: var(--ivoire); margin-bottom: 6px; line-height: 1.4; }
+        .article-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 6px; }
+        .article-item .src { font-size: 11px; color: var(--ocean); }
+        .article-item .article-link {
+            display: inline-block; font-size: 12px; color: var(--sable); border: 1px solid var(--sable);
+            border-radius: 4px; padding: 2px 10px; margin-top: 4px; transition: all 0.2s;
+        }
+        .article-item .article-link:hover { background: var(--sable); color: #fff; }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 80px 0 24px; }
+            .section-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">VEILLE STRATÉGIQUE</div>
+            <h1>Vendredi 8 mai 2026</h1>
+            <p><a href="../archives/" class="back-link">← Retour aux archives</a></p>
+        </div>
+    </div>
+
+    <section class="veille-content">
+        <div class="container">
+<div class="badge">Actualités &lt; 24</div>
+</div>
+
+
+<div class="section-block" style="background: #1a1a2e; border-left-color: #e94560;">
+<div >
+<span >🌍</span>
+<h2 >GÉOPOLITIQUE</h2>
+<span  style="color: #e94560;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #e94560;">1</span>
+<div >Militaires américains en Allemagne | Une présence stratégique</div>
+<div class="article-summary">Lieu stratégique pour les opérations, force dissuasive contre les attaques, camps d’entraînement, hôpital de pointe : la présence militaire américa...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/etats-unis/2026-05-08/militaires-americains-en-allemagne/une-presence-strategique.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">2</span>
+<div >Yémen–Somalie : l’inquiétante coopération entre ennemis idéologiques menace le commerce mondial</div>
+<div class="article-summary">Le soutien supposé des militants houthistes du Yémen à ceux d’Al-Chabab en Somalie reste à ce stade limité – bien qu’inquiétant.</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/yemen-somalie-linquietante-cooperation-entre-ennemis-ideologiques-menace-le-commerce-mondial-278176" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">3</span>
+<div >Oil prices rise after US and Iran exchange fire in Hormuz strait</div>
+<div class="article-summary">US President Donald Trump says the ceasefire between Washington and Tehran is still in place.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/c86dp85g59xo?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">4</span>
+<div >Trump says US-Iran ceasefire still in place after exchange of fire in Strait of Hormuz</div>
+<div class="article-summary">Iran accuses the US of violating the truce, alleging it targeted an oil tanker and carried out attacks on coastal areas.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/c626zyywxjno?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">5</span>
+<div >China’s submarines are testing America’s undersea dominance</div>
+<div class="article-summary">And naval drones will soon trouble both countries</div><div class="article-source">Source: The Economist International</div><a href="https://www.economist.com/international/2026/05/07/chinas-submarines-are-testing-americas-undersea-dominance" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #16213e; border-left-color: #0f3460;">
+<div >
+<span >📈</span>
+<h2 >ÉCONOMIE</h2>
+<span  style="color: #0f3460;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #0f3460;">1</span>
+<div >Trois emplois désertés | Dans la peau de travailleurs étrangers</div>
+<div class="article-summary">D’attrapeurs de volailles à employés dans le textile, notre économie repose de plus en plus sur des travailleurs venus de l’étranger. Alors que Qué...</div><div class="article-source">Source: La Presse</div><a href="https://www.lapresse.ca/actualites/2026-05-08/trois-emplois-desertes/dans-la-peau-de-travailleurs-etrangers.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">2</span>
+<div >Congrès de l’Association des économistes | Eric Girard vide son sac</div>
+<div class="article-summary">Le ministre des Finances et économiste Eric Girard n’est jamais aussi à l’aise que devant un parterre d’économistes. Il l’a une fois de plus démont...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/chroniques/2026-05-08/congres-de-l-association-des-economistes/eric-girard-vide-son-sac.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">3</span>
+<div >Asian Stocks Rack Up One of Biggest Weekly Gains Since 2024</div>
+<div class="article-summary">Get caught up.</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/newsletters/2026-05-08/asian-stocks-rack-up-one-of-biggest-weekly-gains-since-2024" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">4</span>
+<div >US businesses urge Trump to intervene over new EU consumer rules</div>
+<div class="article-summary">American companies fear an update to Brussels’ ‘Product Liability Directive’ will make it easier for consumers to sue</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/f2728750-9c2c-48fa-92ba-9e67203b964d" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">5</span>
+<div >‘Keep calm and carry on’ with Trump, says EU president Costa</div>
+<div class="article-summary">Also in this newsletter: Prime Minister Giorgia Meloni expected to reaffirm Italy’s commitment to good ties with Washington</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/a9cddc5a-abf4-46d1-95bb-f8a986239572" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #1b2430; border-left-color: #6c63ff;">
+<div >
+<span >🤖</span>
+<h2 >TECHNOLOGIE</h2>
+<span  style="color: #6c63ff;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #6c63ff;">1</span>
+<div >Using the body’s own sounds to diagnose Alzheimer’s and Parkinson’s before the first symptoms appear</div>
+<div class="article-summary">An in-ear device could help detect the early signs of Alzheimer’s and Parkinson’s, well before symptoms appear.</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/using-the-bodys-own-sounds-to-diagnose-alzheimers-and-parkinsons-before-the-first-symptoms-appear-279995" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">2</span>
+<div >Venom and Hot Peppers Offer a Key to Killing Resistant Bacteria</div>
+<div class="article-summary">Researchers have developed three new antibiotics from scorpion venom and habanero peppers to combat tuberculosis and other drug-resistant pathogens.</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/mexican-science-transforms-scorpion-venom-and-habanero-chile-into-antibiotics-against-resistant-bacteria/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">3</span>
+<div >Meet Rassvet, Russia’s Answer to Starlink</div>
+<div class="article-summary">With the launch of the first 16 satellites, Russia begins construction of a network for satellite internet that aims to cover the entire country by...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/meet-rassvet-russias-answer-to-starlink/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">4</span>
+<div >Why you can never get your doctor to call you back</div>
+<div class="article-summary">Like many AI companies automating work that humans currently do, Basata will eventually face a harder question about where the line is between augm...</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/05/07/the-back-office-problem-that-explains-why-specialists-never-call-you-back/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">5</span>
+<div >Ramp in talks to hit $40B+ valuation, 6 months after reaching $32B</div>
+<div class="article-summary">The company is reportedly in talks to raise another $750 million at a pre-money valuation of more than $40 billion. It last raised in November at $...</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/05/07/ramp-in-talks-to-hit-40b-valuation-6-months-after-reaching-32b/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #0f0f1a; border-left-color: #00b894;">
+<div >
+<span >💰</span>
+<h2 >FINANCE</h2>
+<span  style="color: #00b894;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #00b894;">1</span>
+<div >Clariant CEO: Demand Remains Solid Despite Hormuz Blockade</div>
+<div class="article-summary">Demand for chemical products remains high, even though the blockade of the Strait of Hormuz has complicated supply chains, says Conrad Keijzer, CEO...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/videos/2026-05-08/clariant-demand-remains-solid-despite-hormuz-blockade-video" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">2</span>
+<div >Gold Fields’ Spat With Ghana Contractor Heads for Arbitration</div>
+<div class="article-summary">A $740 million dispute between Gold Fields Ltd. and a mining contractor in Ghana will be fought out in arbitration.</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-05-08/gold-fields-spat-with-ghana-contractor-heads-for-arbitration" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">3</span>
+<div >Food Prices Rise to Highest in Three Years on Iran War Costs</div>
+<div class="article-summary">Global food prices climbed to their highest level in more than three years as the Iran war disrupted supply chains, raising the prospect of larger ...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-05-08/food-prices-rise-to-highest-in-three-years-on-iran-war-costs" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">4</span>
+<div >Big Tech’s $725bn AI spending spree sends free cash flow to a decade low</div>
+<div class="article-summary">Silicon Valley giants have transformed from asset-light cash machines to huge infrastructure investors</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/b3dfaba9-17a2-4fac-90fe-4ab3ca7c9494" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div></div>
+
+
+</div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            var h = document.getElementById('hamburger');
+            var n = document.getElementById('navLinks');
+            if (h && n) {
+                h.addEventListener('click', function() { h.classList.toggle('active'); n.classList.toggle('open'); });
+                n.querySelectorAll('a').forEach(function(l) {
+                    l.addEventListener('click', function() { h.classList.remove('active'); n.classList.remove('open'); });
+                });
+                document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { h.classList.remove('active'); n.classList.remove('open'); } });
+            }
+        })();
+    </script>
+
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>© 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>

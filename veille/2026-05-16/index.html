@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Samedi 16 mai 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px; cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0; flex-direction: column;
+            align-items: flex-end; background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .page-header {
+            padding: 100px 0 40px; text-align: center;
+        }
+        .page-header .tagline {
+            font-size: 20px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif; color: var(--sable); margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300; font-family: 'Bebas Neue', sans-serif;
+            color: var(--ivoire); line-height: 1.3; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .page-header p { font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .veille-content { padding: 0 0 60px; }
+        .veille-content h2 { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px; }
+        .veille-content h3 { font-size: 17px; font-weight: 500; color: var(--sable); margin-bottom: 12px; margin-top: 24px; }
+        .veille-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+        .veille-content .back-link { display: inline-block; font-size: 13px; color: var(--sable); padding: 10px 0; }
+        .veille-content .back-link:hover { color: #e0a878; }
+
+        /* Veille article cards */
+        .section-block {
+            background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2);
+            border-radius: 14px; padding: 28px; margin-bottom: 24px;
+        }
+        .section-block h3 {
+            font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif;
+            margin-bottom: 16px; letter-spacing: 2px; margin-top: 0;
+        }
+        .article-item {
+            border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 0;
+        }
+        .article-item:first-child { border-top: none; padding-top: 0; }
+        .article-item h4 { font-size: 15px; font-weight: 600; color: var(--ivoire); margin-bottom: 6px; line-height: 1.4; }
+        .article-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 6px; }
+        .article-item .src { font-size: 11px; color: var(--ocean); }
+        .article-item .article-link {
+            display: inline-block; font-size: 12px; color: var(--sable); border: 1px solid var(--sable);
+            border-radius: 4px; padding: 2px 10px; margin-top: 4px; transition: all 0.2s;
+        }
+        .article-item .article-link:hover { background: var(--sable); color: #fff; }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 80px 0 24px; }
+            .section-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">VEILLE STRATÉGIQUE</div>
+            <h1>Samedi 16 mai 2026</h1>
+            <p><a href="../archives/" class="back-link">← Retour aux archives</a></p>
+        </div>
+    </div>
+
+    <section class="veille-content">
+        <div class="container">
+<div class="badge">Actualités &lt; 24</div>
+</div>
+
+
+<div class="section-block" style="background: #1a1a2e; border-left-color: #e94560;">
+<div >
+<span >🌍</span>
+<h2 >GÉOPOLITIQUE</h2>
+<span  style="color: #e94560;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #e94560;">1</span>
+<div >Cartels de la drogue | La présidente mexicaine sous pression américaine</div>
+<div class="article-summary">Les États-Unis intensifient leur pression sur le gouvernement mexicain pour le forcer à agir plus énergiquement contre les cartels de la drogue, pl...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/2026-05-16/cartels-de-la-drogue/la-presidente-mexicaine-sous-pression-americaine.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">2</span>
+<div >Conflit au Moyen-Orient | Cessez-le-feu prolongé entre Liban et Israël, malgré de nouvelles frappes</div>
+<div class="article-summary">Israël et le Liban ont donné leur accord à une prolongation d’un mois et demi du cessez-le-feu pendant de nouvelles négociations entre les deux pay...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/moyen-orient/2026-05-15/conflit-au-moyen-orient/cessez-le-feu-prolonge-entre-liban-et-israel-malgre-de-nouvelles-frappes.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">3</span>
+<div >Senior IS leader killed by US and Nigerian forces</div>
+<div class="article-summary">US President Donald Trump said the joint operation eliminated "the most active terrorist in the world", Abu-Bilal al-Minuki.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/cy72p2kpd03o?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">4</span>
+<div >Trump warns Taiwan against declaring independence, hours after summit with China's Xi</div>
+<div class="article-summary">The US president says he wants Beijing and Taipei to "cool down" tensions over the self-governing island.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/ce8p61v7l68o?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">5</span>
+<div >Trump and Xi conclude 'very successful' talks but few deals confirmed</div>
+<div class="article-summary">There were plenty of choreographed ceremonies but no trade breakthroughs after the two-day visit.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/clypj01189lo?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #16213e; border-left-color: #0f3460;">
+<div >
+<span >📈</span>
+<h2 >ÉCONOMIE</h2>
+<span  style="color: #0f3460;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #0f3460;">1</span>
+<div >4,9 millions d’actions | La Caisse investit massivement dans le CN</div>
+<div class="article-summary">La Caisse vient d’investir plusieurs centaines de millions de dollars pour acheter des actions du Canadien National durant les trois premiers mois ...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/entreprises/2026-05-16/4-9-millions-d-actions/la-caisse-investit-massivement-dans-le-cn.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">2</span>
+<div >What’s Really Behind Britain’s Debt Drama</div>
+<div class="article-summary">Unless the Bank of England indulged in a mad selling spree, there are other reasons for Friday’s jump in UK yields.</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/newsletters/2026-05-16/what-s-really-behind-the-british-debt-drama-merryn-talks-money" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">3</span>
+<div >How can Trump turn things around on inflation?</div>
+<div class="article-summary">Most of the culpability rests with the Fed and the Biden government but voters will hold the president accountable</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/0a8613df-6b35-475d-8549-787be1fce900" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">4</span>
+<div >Our dog-eat-dog world order needs a rethink</div>
+<div class="article-summary">We must reinvent the governance of multilateral institutions</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/534a8fd2-f985-44e7-89f0-093f78cb2b07" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">5</span>
+<div >Trump undecided on Taiwan arms sale after summit with Xi</div>
+<div class="article-summary">US president raises doubts about $14bn weapons package for Taipei after two days of meetings in China</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/66933e51-e06d-475c-aed2-f808f9443dea" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #1b2430; border-left-color: #6c63ff;">
+<div >
+<span >🤖</span>
+<h2 >TECHNOLOGIE</h2>
+<span  style="color: #6c63ff;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #6c63ff;">1</span>
+<div >Some Asexuals Are Using AI Companions for Intimacy Without the Sex</div>
+<div class="article-summary">“I’ve got one hand on the keyboard, one hand down below,” an artist who role-plays with their chatbot tells WIRED. But some asexual advocates aren’...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/some-asexual-people-are-using-ai-companions-for-intimacy-without-the-sex/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">2</span>
+<div >Asteroid 2026 JH2 Is About to Fly Right Past Earth—Relatively Speaking</div>
+<div class="article-summary">On May 18, an asteroid about the size of Chicago’s Cloud Gate will fly four times closer to Earth than the moon.</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/asteroid-2026-jh2-is-about-to-fly-right-past-the-earth-relatively-speaking/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">3</span>
+<div >Anthropic’s $1.5B copyright settlement is getting messy as judge delays approval</div>
+<div class="article-summary">Lawyers accused of rushing historic settlement to seize $320 million in fees.</div><div class="article-source">Source: Ars Technica</div><a href="https://arstechnica.com/tech-policy/2026/05/authors-fight-for-higher-payouts-from-anthropics-1-5b-copyright-settlement/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">4</span>
+<div >RJ Scaringe has raised more than $12B across three startups and investors still want more</div>
+<div class="article-summary">Investors can't seem to get enough of RJ Scaringe or his ideas. Storytelling and communication are one of his superpowers, according to Jiten Behl,...</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/05/15/rj-scaringe-has-raised-more-than-12-billion-across-three-startups-and-investors-still-want-more/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #0f0f1a; border-left-color: #00b894;">
+<div >
+<span >💰</span>
+<h2 >FINANCE</h2>
+<span  style="color: #00b894;">1 article</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #00b894;">1</span>
+<div >Modest ECB Rate Hike Would Limit Economic Pain, Stournaras Says</div>
+<div class="article-summary">A small European Central Bank interest-rate increase could temper inflation without causing economic damage, Governing Council member Yannis Stourn...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-05-16/modest-ecb-rate-hike-would-limit-economic-pain-stournaras-says" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div></div>
+
+
+</div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            var h = document.getElementById('hamburger');
+            var n = document.getElementById('navLinks');
+            if (h && n) {
+                h.addEventListener('click', function() { h.classList.toggle('active'); n.classList.toggle('open'); });
+                n.querySelectorAll('a').forEach(function(l) {
+                    l.addEventListener('click', function() { h.classList.remove('active'); n.classList.remove('open'); });
+                });
+                document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { h.classList.remove('active'); n.classList.remove('open'); } });
+            }
+        })();
+    </script>
+
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>© 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>

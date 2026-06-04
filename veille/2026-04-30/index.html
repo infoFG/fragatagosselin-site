@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Jeudi 30 avril 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px; cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0; flex-direction: column;
+            align-items: flex-end; background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .page-header {
+            padding: 100px 0 40px; text-align: center;
+        }
+        .page-header .tagline {
+            font-size: 20px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif; color: var(--sable); margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300; font-family: 'Bebas Neue', sans-serif;
+            color: var(--ivoire); line-height: 1.3; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .page-header p { font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .veille-content { padding: 0 0 60px; }
+        .veille-content h2 { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px; }
+        .veille-content h3 { font-size: 17px; font-weight: 500; color: var(--sable); margin-bottom: 12px; margin-top: 24px; }
+        .veille-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+        .veille-content .back-link { display: inline-block; font-size: 13px; color: var(--sable); padding: 10px 0; }
+        .veille-content .back-link:hover { color: #e0a878; }
+
+        /* Veille article cards */
+        .section-block {
+            background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2);
+            border-radius: 14px; padding: 28px; margin-bottom: 24px;
+        }
+        .section-block h3 {
+            font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif;
+            margin-bottom: 16px; letter-spacing: 2px; margin-top: 0;
+        }
+        .article-item {
+            border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 0;
+        }
+        .article-item:first-child { border-top: none; padding-top: 0; }
+        .article-item h4 { font-size: 15px; font-weight: 600; color: var(--ivoire); margin-bottom: 6px; line-height: 1.4; }
+        .article-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 6px; }
+        .article-item .src { font-size: 11px; color: var(--ocean); }
+        .article-item .article-link {
+            display: inline-block; font-size: 12px; color: var(--sable); border: 1px solid var(--sable);
+            border-radius: 4px; padding: 2px 10px; margin-top: 4px; transition: all 0.2s;
+        }
+        .article-item .article-link:hover { background: var(--sable); color: #fff; }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 80px 0 24px; }
+            .section-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">VEILLE STRATÉGIQUE</div>
+            <h1>Jeudi 30 avril 2026</h1>
+            <p><a href="../archives/" class="back-link">← Retour aux archives</a></p>
+        </div>
+    </div>
+
+    <section class="veille-content">
+        <div class="container">
+<div class="badge">Actualités &lt; 24</div>
+</div>
+
+
+<div class="section-block" style="background: #1a1a2e; border-left-color: #e94560;">
+<div >
+<span >🌍</span>
+<h2 >GÉOPOLITIQUE</h2>
+<span  style="color: #e94560;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #e94560;">1</span>
+<div >Classement annuel de Reporters sans frontières | La liberté de la presse au plus bas depuis 25 ans dans le monde</div>
+<div class="article-summary">La liberté de la presse a atteint son plus bas niveau depuis un quart de siècle dans le monde, alerte jeudi Reporters sans frontières (RSF) dans so...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/2026-04-30/classement-annuel-de-reporters-sans-frontieres/la-liberte-de-la-presse-au-plus-bas-depuis-25-ans-dans-le-monde.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">2</span>
+<div >La Corée du Nord aux prises avec une grave sécheresse</div>
+<div class="article-summary">La Corée du Nord est confrontée cette année à une sécheresse « inhabituelle » et « grave » et veut protéger ses cultures, a indiqué jeudi l’agence ...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/asie-et-oceanie/2026-04-29/la-coree-du-nord-aux-prises-avec-une-grave-secheresse.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">3</span>
+<div >Oil price hits highest since 2022 after report Trump to be briefed on new Iran options</div>
+<div class="article-summary">Axios reported that US Central Command has prepared a plan for a wave of "short and powerful" strikes on Iran.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/cx21m88rd14o?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">4</span>
+<div >Jewish agency warned of 'high' threat level ahead of Bondi shooting, report finds</div>
+<div class="article-summary">Gun reforms should be prioritised and policing around Jewish events increased, royal commission says.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/cdjpw0n889yo?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #16213e; border-left-color: #0f3460;">
+<div >
+<span >📈</span>
+<h2 >ÉCONOMIE</h2>
+<span  style="color: #0f3460;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #0f3460;">1</span>
+<div >Québec | Dix faits étonnants sur le salaire minimum</div>
+<div class="article-summary">On les croise au dépanneur, à la station-service. Aux quatre coins du Québec, 198 000 travailleurs gagnent le salaire minimum. Soit 16,60 $ de l’he...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/chroniques/2026-04-30/quebec/dix-faits-etonnants-sur-le-salaire-minimum.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">2</span>
+<div >Étude de l’IRIS | Le revenu qu’il faut pour vivre décemment</div>
+<div class="article-summary">Même si le salaire minimum augmente à 16,60 $ le premier mai, il ne permet pas aux Québécois de se sortir de la pauvreté. Selon les derniers calcul...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/finances-personnelles/2026-04-30/etude-de-l-iris/le-revenu-qu-il-faut-pour-vivre-decemment.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">3</span>
+<div >Bloomberg Daybreak: Oil Pushes Higher (Podcast)</div>
+<div class="article-summary">Source: Bloomberg, 22:16</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-04-30/bloomberg-daybreak-oil-pushes-higher-podcast" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">4</span>
+<div >Stock Movers: Whitbread, Volkswagen Woes, Air France (Podcast)</div>
+<div class="article-summary">Source: Bloomberg, 4:40</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-04-30/stock-movers-whitbread-volkswagen-woes-air-france-podcast" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">5</span>
+<div >FirstFT: Google pulls ahead as Big Tech AI spending targets surge</div>
+<div class="article-summary">Also in today’s newsletter: oil passes $125 a barrel, and Russia’s Mali setback</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/bc269ad5-d531-4c67-9e03-2e6268ce9c1e" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #1b2430; border-left-color: #6c63ff;">
+<div >
+<span >🤖</span>
+<h2 >TECHNOLOGIE</h2>
+<span  style="color: #6c63ff;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #6c63ff;">1</span>
+<div >AI ‘deadbots’ can fuel pathological grief and affect how we deal with death</div>
+<div class="article-summary">AI now makes it possible to communicate with the dead. But these digital avatars raise significant ethical questions about our relationship with mo...</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/ai-deadbots-can-fuel-pathological-grief-and-affect-how-we-deal-with-death-280683" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">2</span>
+<div >The Eve Aqua Smart Water Controller Lets You Water Your Garden From Your Phone</div>
+<div class="article-summary">No need to excavate an in-ground irrigation system once you install this fixture onto your home’s spigot—you just have to figure out how to use the...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/review/review-eve-aqua-smart-water-controller/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">3</span>
+<div >Reid Hoffman Thinks Doctors Should Ask AI for a Second Opinion</div>
+<div class="article-summary">The LinkedIn cofounder now has an AI drug discovery startup—and thinks not asking chatbots for medical advice is “bordering on committing malpracti...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/reid-hoffman-ai-doctor-second-opinion-wired-health/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">4</span>
+<div >SoftBank is creating a robotics company that builds data centers — and already eyeing a $100B IPO</div>
+<div class="article-summary">You need infrastructure to build AI a and robots, but apparently you also need AI and robots to build infrastructure.</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/04/29/softbank-is-creating-a-robotics-company-that-builds-data-centers-and-already-eyeing-a-100b-ipo/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">5</span>
+<div >Amazon, Meta join fight to end Google Pay, PhonePe dominance in India</div>
+<div class="article-summary">PhonePe and Google Pay command 80% of India's UPI instant payments network. Rivals are set to meet with regulators to lobby for restrictions.</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/04/29/amazon-meta-join-fight-to-end-google-pay-phonepe-dominance-in-india/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #0f0f1a; border-left-color: #00b894;">
+<div >
+<span >💰</span>
+<h2 >FINANCE</h2>
+<span  style="color: #00b894;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #00b894;">1</span>
+<div >Oil surges past $125 as fears of prolonged supply disruption grow</div>
+<div class="article-summary">Brent crude sets new conflict high as blockade of Strait of Hormuz continues</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/ce575380-eccc-447c-a64e-493957d9b037" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">2</span>
+<div >Vanke State Backer Books $5.5 Billion Loss, Most in Two Decades</div>
+<div class="article-summary">China Vanke Co.’s state-owned backer reported its biggest annual loss in two decades, driven largely by its investments in the embattled developer,...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-04-30/vanke-state-backer-books-5-5-billion-loss-most-in-two-decades" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">3</span>
+<div >Eurozone inflation rises to 3% in April amid Middle East energy shock</div>
+<div class="article-summary">Economy’s 0.1% growth in the first quarter was slower than expected</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/281962eb-d32d-4733-ad25-c4c026bcbf6e" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">4</span>
+<div >Stocks Steady on Earnings Boost; Oil Erases Jump: Markets Wrap</div>
+<div class="article-summary">Stocks steadied as investors dissected a flurry of earnings, including from four of the Magnificent Seven cohort. Market sentiment improved as oil ...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-04-29/stock-market-today-dow-s-p-live-updates" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div></div>
+
+
+</div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            var h = document.getElementById('hamburger');
+            var n = document.getElementById('navLinks');
+            if (h && n) {
+                h.addEventListener('click', function() { h.classList.toggle('active'); n.classList.toggle('open'); });
+                n.querySelectorAll('a').forEach(function(l) {
+                    l.addEventListener('click', function() { h.classList.remove('active'); n.classList.remove('open'); });
+                });
+                document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { h.classList.remove('active'); n.classList.remove('open'); } });
+            }
+        })();
+    </script>
+
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>© 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>

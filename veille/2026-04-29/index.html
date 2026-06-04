@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Mercredi 29 avril 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto; display: flex; align-items: center;
+            justify-content: space-between; height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px; cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0; flex-direction: column;
+            align-items: flex-end; background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .page-header {
+            padding: 100px 0 40px; text-align: center;
+        }
+        .page-header .tagline {
+            font-size: 20px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif; color: var(--sable); margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px); font-weight: 300; font-family: 'Bebas Neue', sans-serif;
+            color: var(--ivoire); line-height: 1.3; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 3px;
+        }
+        .page-header p { font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+        .veille-content { padding: 0 0 60px; }
+        .veille-content h2 { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: var(--ivoire); margin-bottom: 8px; letter-spacing: 1px; }
+        .veille-content h3 { font-size: 17px; font-weight: 500; color: var(--sable); margin-bottom: 12px; margin-top: 24px; }
+        .veille-content p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+        .veille-content .back-link { display: inline-block; font-size: 13px; color: var(--sable); padding: 10px 0; }
+        .veille-content .back-link:hover { color: #e0a878; }
+
+        /* Veille article cards */
+        .section-block {
+            background: rgba(66,85,111,0.06); border: 1px solid rgba(66,85,111,0.2);
+            border-radius: 14px; padding: 28px; margin-bottom: 24px;
+        }
+        .section-block h3 {
+            font-size: 18px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif;
+            margin-bottom: 16px; letter-spacing: 2px; margin-top: 0;
+        }
+        .article-item {
+            border-top: 1px solid rgba(255,255,255,0.06); padding: 14px 0;
+        }
+        .article-item:first-child { border-top: none; padding-top: 0; }
+        .article-item h4 { font-size: 15px; font-weight: 600; color: var(--ivoire); margin-bottom: 6px; line-height: 1.4; }
+        .article-item p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 6px; }
+        .article-item .src { font-size: 11px; color: var(--ocean); }
+        .article-item .article-link {
+            display: inline-block; font-size: 12px; color: var(--sable); border: 1px solid var(--sable);
+            border-radius: 4px; padding: 2px 10px; margin-top: 4px; transition: all 0.2s;
+        }
+        .article-item .article-link:hover { background: var(--sable); color: #fff; }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .page-header { padding: 80px 0 24px; }
+            .section-block { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">VEILLE STRATÉGIQUE</div>
+            <h1>Mercredi 29 avril 2026</h1>
+            <p><a href="../archives/" class="back-link">← Retour aux archives</a></p>
+        </div>
+    </div>
+
+    <section class="veille-content">
+        <div class="container">
+<div class="badge">Actualités &lt; 24</div>
+</div>
+
+
+<div class="section-block" style="background: #1a1a2e; border-left-color: #e94560;">
+<div >
+<span >🌍</span>
+<h2 >GÉOPOLITIQUE</h2>
+<span  style="color: #e94560;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #e94560;">1</span>
+<div >Visite de Charles III à Washington | Leçons de démocratie d’un monarque à un autre</div>
+<div class="article-summary">Ce n’était pas une ironie de l’Histoire, mais une ironie aux proportions historiques.</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/chroniques/2026-04-29/visite-de-charles-iii-a-washington/lecons-de-democratie-d-un-monarque-a-un-autre.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">2</span>
+<div >9-Mai | Pas de matériel militaire au défilé à Moscou cette année</div>
+<div class="article-summary">La Russie ne déploiera pas de matériel militaire cette année pour le défilé militaire du 9-Mai sur la place Rouge à Moscou commémorant la victoire ...</div><div class="article-source">Source: La Presse International</div><a href="https://www.lapresse.ca/international/europe/2026-04-28/9-mai/pas-de-materiel-militaire-au-defile-a-moscou-cette-annee.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">3</span>
+<div >Five takeaways from the King's historic address to Congress</div>
+<div class="article-summary">There were some lines in the speech that may have buoyed Democrats – and raised eyebrows in the White House.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/c8jvl3x19v9o?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">4</span>
+<div >To fight Russia, Europe needs Ukraine</div>
+<div class="article-summary">It is risky to let Ukraine into the EU. It’s more dangerous to keep it out</div><div class="article-source">Source: The Economist International</div><a href="https://www.economist.com/international/2026/04/28/to-fight-russia-europe-needs-ukraine" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #e94560;">5</span>
+<div >Faisal Islam: Why the UAE's exit from Opec is a big deal</div>
+<div class="article-summary">It will have little effect on the current oil blockades, but it could change everything afterwards.</div><div class="article-source">Source: BBC World</div><a href="https://www.bbc.com/news/articles/cj4pxyklw1jo?at_medium=RSS&at_campaign=rss" class="article-link" style="color: #e94560; border-color: #e94560;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #16213e; border-left-color: #0f3460;">
+<div >
+<span >📈</span>
+<h2 >ÉCONOMIE</h2>
+<span  style="color: #0f3460;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #0f3460;">1</span>
+<div >La revue de presse de Paul Arcand | Besoin urgent de travailleurs de la construction, les nouveaux curés et la réunionite</div>
+<div class="article-summary">À l’occasion de sa revue de presse, mercredi, Paul Arcand fait le point sur la mise à jour économique printanière du ministre fédéral des Finances,...</div><div class="article-source">Source: La Presse</div><a href="https://www.lapresse.ca/actualites/2026-04-29/la-revue-de-presse-de-paul-arcand/besoin-urgent-de-travailleurs-de-la-construction-les-nouveaux-cures-et-la-reunionite.php?utm_source=rss&utm_medium=fil&utm_campaign=actualites" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">2</span>
+<div >Finances fédérales | Un patient dans un état stable… en attendant Trump</div>
+<div class="article-summary">Ce que j’en pense ? Que les finances publiques fédérales sont dans un état stable, pour reprendre un terme médical, ce qui est déjà pas mal dans le...</div><div class="article-source">Source: La Presse Affaires</div><a href="https://www.lapresse.ca/affaires/chroniques/2026-04-29/finances-federales/un-patient-dans-un-etat-stable-en-attendant-trump.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">3</span>
+<div >FirstFT: A Citi hire that raises questions</div>
+<div class="article-summary">Also in today’s newsletter: prosecutors charge former FBI director and ‘the beginning of the end of Opec’</div><div class="article-source">Source: Financial Times Global Economy</div><a href="https://www.ft.com/content/f3c0674f-0fb0-4d08-8f30-0ae2acf6e797" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">4</span>
+<div >Bloomberg Daybreak: Trump Maintains Pressure on Iran (Podcast)</div>
+<div class="article-summary">Source: Bloomberg, 15:46</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-04-29/bloomberg-daybreak-trump-maintains-pressure-on-iran-podcast" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #0f3460;">5</span>
+<div >Trump Maintains Pressure on Iran, King Charles Speech, More</div>
+<div class="article-summary">Source: Bloomberg, 0:00</div><div class="article-source">Source: Bloomberg Business</div><a href="https://www.bloomberg.com/news/audio/2026-04-29/trump-maintains-pressure-on-iran-king-charles-speech-more" class="article-link" style="color: #0f3460; border-color: #0f3460;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #1b2430; border-left-color: #6c63ff;">
+<div >
+<span >🤖</span>
+<h2 >TECHNOLOGIE</h2>
+<span  style="color: #6c63ff;">5 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #6c63ff;">1</span>
+<div >Fraude, coercition et torture dans les centres d’arnaques en ligne : un témoin raconte</div>
+<div class="article-summary">Certains travailleurs victimes de la traite dans des centres d’arnaques sont parfois consentants – et c’est précisément ce qui rend ce système si d...</div><div class="article-source">Source: La Conversation Canada</div><a href="https://theconversation.com/fraude-coercition-et-torture-dans-les-centres-darnaques-en-ligne-un-temoin-raconte-280867" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">2</span>
+<div >Coby Adcock’s Scout AI raises $100 million to train its models for war. We visited its bootcamp.</div>
+<div class="article-summary">We visited Scout AI's training ground where it's working on AI agents that give individual soldiers control of  fleets of autonomous vehicles.</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/04/29/coby-adcocks-scout-ai-raises-100-million-to-train-models-for-war-we-visited-its-bootcamp/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">3</span>
+<div >Vari Align Desk Chair Review (2026): Breathable, Comfy, Low Cost</div>
+<div class="article-summary">The comfortable new office chair from standing-desk pioneer Vari strikes a delicate balance between support and simplicity. Petite people might fin...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/review/vari-align-office-chair/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">4</span>
+<div >How AI Could Help Combat Antibiotic Resistance</div>
+<div class="article-summary">At WIRED Health, British surgeon Ara Darzi said AI is set to transform the diagnosis and treatment of drug-resistant infections. But a lack of ince...</div><div class="article-source">Source: Wired</div><a href="https://www.wired.com/story/wired-health-2026-tackling-antimicrobial-resistance-ara-darzi/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #6c63ff;">5</span>
+<div >How one venture firm is investing in an increasingly fragmented world</div>
+<div class="article-summary">Geopolitical turmoil has made venture investing challenging, leading Kompas VC to carve out a niche in startups focused on the physical world.</div><div class="article-source">Source: TechCrunch</div><a href="https://techcrunch.com/2026/04/28/how-one-venture-firm-is-navigating-an-increasingly-fragmented-world/" class="article-link" style="color: #6c63ff; border-color: #6c63ff;">🔗 Lire l'article →</a></div></div>
+
+<div class="section-block" style="background: #0f0f1a; border-left-color: #00b894;">
+<div >
+<span >💰</span>
+<h2 >FINANCE</h2>
+<span  style="color: #00b894;">4 articles</span>
+</div>
+
+<div class="article-item">
+<span  style="background: #00b894;">1</span>
+<div >China’s Mega Banks Ramp Up Profit Growth in First Quarter</div>
+<div class="article-summary">China’s largest state-owned lenders reported an up-tick in earnings growth in the first quarter, signaling a potential turn for an industry long de...</div><div class="article-source">Source: Bloomberg Markets</div><a href="https://www.bloomberg.com/news/articles/2026-04-29/china-s-mega-banks-post-increased-profits-in-first-quarter" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">2</span>
+<div >UBS trading gains fuel 80% profit surge</div>
+<div class="article-summary">Market volatility from Middle East war propels strong activity at Swiss bank</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/c6f04c41-d71c-479f-9def-f24e6ee3b14f" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">3</span>
+<div >Total profits jump 29% as war drives oil price surge and trading gains</div>
+<div class="article-summary">French oil major doubles buybacks and increases dividend as it offsets production losses in the Middle East</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/86a02358-3050-4d3d-aaad-ebce1402cba2" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div>
+<div class="article-item">
+<span  style="background: #00b894;">4</span>
+<div >How Citi’s $52mn hire was forced out of JPMorgan over his behaviour</div>
+<div class="article-summary">After years of complaints, Vis Raghavan had been told he was out of a job. Three days later, Citi hired him</div><div class="article-source">Source: Financial Times Markets</div><a href="https://www.ft.com/content/e45c2c21-babe-4fd9-85f1-2b2b3aa38872" class="article-link" style="color: #00b894; border-color: #00b894;">🔗 Lire l'article →</a></div></div>
+
+
+</div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            var h = document.getElementById('hamburger');
+            var n = document.getElementById('navLinks');
+            if (h && n) {
+                h.addEventListener('click', function() { h.classList.toggle('active'); n.classList.toggle('open'); });
+                n.querySelectorAll('a').forEach(function(l) {
+                    l.addEventListener('click', function() { h.classList.remove('active'); n.classList.remove('open'); });
+                });
+                document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { h.classList.remove('active'); n.classList.remove('open'); } });
+            }
+        })();
+    </script>
+
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>© 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>

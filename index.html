@@ -53,13 +53,48 @@
             height: 60px;
         }
         nav .logo img { height: 32px; width: auto; }
-        nav .nav-links { display: flex; gap: 20px; list-style: none; }
+        nav .nav-links { list-style: none; }
         nav .nav-links a {
             font-size: 13px; font-weight: 500; color: var(--text-muted);
             text-decoration: none !important;
             transition: color 0.2s;
         }
         nav .nav-links a:hover { color: var(--sable); text-decoration: none !important; }
+
+        /* Hamburger button */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 6px;
+            gap: 5px;
+            transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
 
         /* ===== HERO ===== */
         .hero {
@@ -367,9 +402,38 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 640px) {
-            nav .nav-links { gap: 14px; }
-            nav .nav-links a { font-size: 12px; }
+        /* Menu mobile — toujours plié, déroule sur clic */
+        nav .nav-links {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            align-items: flex-end;
+            background: rgba(10,10,26,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2);
+            padding: 12px 24px 20px;
+            gap: 4px;
+            transform: translateY(-120%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        nav .nav-links a {
+            display: block;
+            font-size: 15px;
+            padding: 10px 0;
+            text-align: right;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        nav .nav-links li:last-child a { border-bottom: none; }
             .services-grid { grid-template-columns: 1fr; }
             .approach-steps { grid-template-columns: 1fr; max-width: 100%; }
             .team-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
@@ -389,7 +453,12 @@
             <a href="#" class="logo">
                 <img src="images/logo-new.webp" alt="Fragata Gosselin" />
             </a>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#top">Accueil</a></li>
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#services">Services</a></li>
@@ -397,6 +466,7 @@
                 <li><a href="#equipe">Équipe</a></li>
                 <li><a href="#clients">Clients</a></li>
                 <li><a href="articles/">Articles</a></li>
+                <li><a href="veille/">Veille stratégique</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -705,5 +775,36 @@
         </div>
     </footer>
 
+<script>
+    (function() {
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.getElementById('navLinks');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+        }
+
+        // Toggle on hamburger click
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('nav')) {
+                closeMenu();
+            }
+        });
+    })();
+</script>
 </body>
 </html>
