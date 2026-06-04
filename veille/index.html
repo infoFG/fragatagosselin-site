@@ -16,7 +16,7 @@
         body{font-family:'Manrope',sans-serif;background:var(--bg-dark);color:var(--text-light);line-height:1.7;-webkit-font-smoothing:antialiased;}
         a{color:var(--sable);text-decoration:none;transition:color .2s;}a:hover{color:#e0a878;}
         .container{max-width:720px;margin:0 auto;padding:0 24px;}
-        nav{background:rgba(10,10,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:0 24px;}
+        nav{background:rgba(10,10,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:0 24px;position:fixed;top:0;left:0;right:0;z-index:1000;}
         nav .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
         nav .logo img{height:32px;width:auto;}
         nav .nav-links{list-style:none;}
@@ -32,7 +32,7 @@
         nav .nav-links.open{transform:translateY(0);opacity:1;pointer-events:all;}
         nav .nav-links a{display:block;font-size:15px;padding:10px 0;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);}
         nav .nav-links li:last-child a{border-bottom:none;}
-        .page-header{padding:100px 0 40px;text-align:center;}
+        .page-header{padding-top:160px;padding-bottom:40px;text-align:center;}
         .page-header .tagline{font-size:20px;font-weight:600;letter-spacing:5px;text-transform:uppercase;font-family:'Bebas Neue','Manrope',sans-serif;color:var(--sable);margin-bottom:12px;}
         .page-header h1{font-size:clamp(28px,5vw,48px);font-weight:300;font-family:'Bebas Neue',sans-serif;color:var(--ivoire);line-height:1.3;margin-bottom:24px;text-transform:uppercase;letter-spacing:3px;}
         .page-header p{font-size:15px;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.8;}
