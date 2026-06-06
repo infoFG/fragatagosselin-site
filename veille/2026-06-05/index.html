@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille stratégique – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        :root{--marine:#23364A;--ocean:#42556F;--sable:#D19469;--ivoire:#F4F1F0;--bg-dark:#0a0a1a;--text-light:#e0e0e0;--text-muted:#9999bb;}
+        body{font-family:'Manrope',sans-serif;background:var(--bg-dark);color:var(--text-light);line-height:1.7;-webkit-font-smoothing:antialiased;}
+        a{color:var(--sable);text-decoration:none;transition:color .2s;}a:hover{color:#e0a878;}
+        .container{max-width:720px;margin:0 auto;padding:0 24px;}
+        nav{background:rgba(10,10,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:0 24px;position:fixed;top:0;left:0;right:0;z-index:1000;}
+        nav .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+        nav .logo img{height:32px;width:auto;}
+        nav .nav-links{list-style:none;}
+        nav .nav-links a{font-size:13px;font-weight:500;color:var(--text-muted);text-decoration:none!important;transition:color .2s;}
+        nav .nav-links a:hover,nav .nav-links a.active{color:var(--sable);text-decoration:none!important;}
+        .hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;cursor:pointer;padding:6px;gap:5px;transition:border-color .2s;}
+        .hamburger:hover{border-color:var(--sable);}
+        .hamburger span{display:block;width:20px;height:2px;background:var(--text-muted);border-radius:2px;transition:all .3s;}
+        .hamburger.active span:nth-child(1){transform:translateY(7px)rotate(45deg);}
+        .hamburger.active span:nth-child(2){opacity:0;}
+        .hamburger.active span:nth-child(3){transform:translateY(-7px)rotate(-45deg);}
+        nav .nav-links{position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:flex-end;background:rgba(10,10,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:12px 24px 20px;gap:4px;transform:translateY(-120%);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;}
+        nav .nav-links.open{transform:translateY(0);opacity:1;pointer-events:all;}
+        nav .nav-links a{display:block;font-size:15px;padding:10px 0;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);}
+        nav .nav-links li:last-child a{border-bottom:none;}
+        .page-header{padding-top:160px;padding-bottom:40px;text-align:center;}
+        .page-header .tagline{font-size:20px;font-weight:600;letter-spacing:5px;text-transform:uppercase;font-family:'Bebas Neue','Manrope',sans-serif;color:var(--sable);margin-bottom:12px;}
+        .page-header h1{font-size:clamp(28px,5vw,48px);font-weight:300;font-family:'Bebas Neue',sans-serif;color:var(--ivoire);line-height:1.3;margin-bottom:24px;text-transform:uppercase;letter-spacing:3px;}
+        .page-header p{font-size:15px;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.8;}
+        .veille-list{padding:20px 0 60px;}
+        .veille-card{background:rgba(66,85,111,.06);border:1px solid rgba(66,85,111,.2);border-radius:14px;padding:24px 24px;margin-bottom:16px;transition:all .3s;}
+        .veille-card:hover{background:rgba(66,85,111,.12);transform:translateY(-2px);}
+        .veille-card .date{font-size:12px;color:var(--ocean);margin-bottom:6px;letter-spacing:.5px;}
+        .veille-card h2{font-size:17px;font-weight:500;font-family:'Bebas Neue','Manrope',sans-serif;color:var(--ivoire);margin-bottom:6px;letter-spacing:1px;line-height:1.3;}
+        .veille-card p{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;}
+        .veille-card .cat-badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid;border-radius:4px;padding:1px 6px;}
+        .cat-geopolitique{color:#e94560!important;border-color:#e94560!important;}
+        .veille-card[data-category="geopolitique"]:hover{border-color:#e94560!important;}
+        .cat-economie{color:#0f3460!important;border-color:#0f3460!important;}
+        .veille-card[data-category="economie"]:hover{border-color:#0f3460!important;}
+        .cat-technologie{color:#6c63ff!important;border-color:#6c63ff!important;}
+        .veille-card[data-category="technologie"]:hover{border-color:#6c63ff!important;}
+        .cat-finance{color:#00b894!important;border-color:#00b894!important;}
+        .veille-card[data-category="finance"]:hover{border-color:#00b894!important;}
+        .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+        .filter-btn{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:50px;border:1px solid rgba(66,85,111,.3);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Manrope',sans-serif;}
+        .filter-btn:hover{border-color:var(--sable);color:var(--sable);}
+        .filter-btn.active{background:var(--sable);color:#1a1a1a;border-color:var(--sable);}
+        .veille-card.hidden{display:none!important;}
+        .date-today{font-size:14px;color:var(--sable);margin-bottom:16px;font-weight:500;}
+        footer{border-top:1px solid rgba(66,85,111,.3);padding:32px 0;text-align:center;}
+        footer p{font-size:12px;color:var(--ivoire);letter-spacing:.5px;}
+        @media (max-width:640px){.page-header{padding:80px 0 24px;}.veille-card{padding:18px 20px;}}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">FRAGATA GOSSELIN</div>
+            <h1>Veille stratégique</h1>
+            <p>Une sélection d'actualités, de tendances et d'analyses pour nourrir votre réflexion stratégique.</p>
+            <p style="margin-top:20px;"><a href="../archives/" style="display:inline-block;background:var(--sable);color:#1a1a1a;font-size:13px;font-weight:700;padding:10px 28px;border-radius:50px;letter-spacing:.5px;text-decoration:none;transition:all .3s;">Archives &rarr;</a></p>
+        </div>
+    </div>
+
+    <section class="veille-list">
+        <div class="container">
+            <div class="date-today">5 juin 2026 &mdash; 17 articles</div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="geopolitique">Géopolitique</button>
+                <button class="filter-btn" data-filter="economie">Économie</button>
+                <button class="filter-btn" data-filter="technologie">Technologie</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+            </div>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #e94560; margin: 24px 0 16px; letter-spacing: 2px;">🌍 GÉOPOLITIQUE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.lapresse.ca/international/moyen-orient/2026-06-05/conflit-au-moyen-orient/l-iran-juge-irrealiste-une-rencontre-entre-le-guide-supreme-et-donald-trump.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: La Presse International</div>
+                <h2>Conflit au Moyen-Orient | L’Iran juge irréaliste une rencontre entre le guide suprême et Donald Trump</h2>
+                <p>Le chef de la diplomatie iranienne Abbas Araghchi a écarté toute possibilité de rencontre, suggérée par Donald Trump, entre le président américain ...</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.lapresse.ca/international/etats-unis/2026-06-05/le-senat-approuve-un-budget-de-70-milliards-de-dollars-pour-la-lutte-contre-l-immigration.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: La Presse International</div>
+                <h2>Le Sénat approuve un budget de 70 milliards de dollars pour la lutte contre l’immigration</h2>
+                <p>Le Sénat américain a approuvé vendredi un texte budgétaire de près de 70 milliards de dollars pour la lutte contre l’immigration, après un marathon...</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.bbc.com/news/articles/cwy2ypyp4x4o?at_medium=RSS&at_campaign=rss" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: BBC World</div>
+                <h2>Zelensky proposes face-to-face talks in open letter to Putin</h2>
+                <p>Ukraine's president tells the Russian leader that only "direct engagement" between the two countries could end the war, with the US focused on Iran.</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.bbc.com/news/articles/c052343r812o?at_medium=RSS&at_campaign=rss" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: BBC World</div>
+                <h2>Hezbollah rejects renewed ceasefire agreed by Israel and Lebanon</h2>
+                <p>The United States announced the ceasefire agreement on Wednesday night following a fresh round of talks.</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #0f3460; margin: 24px 0 16px; letter-spacing: 2px;">📈 ÉCONOMIE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(5 articles)</span></h3>
+            <a href="https://www.lapresse.ca/affaires/economie/2026-06-05/forum-economique-de-saint-petersbourg/poutine-prendra-la-parole-alors-que-les-craintes-de-stagnation-grandissent.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: La Presse Affaires</div>
+                <h2>Forum économique de Saint-Pétersbourg | Poutine prendra la parole alors que les craintes de stagnation grandissent</h2>
+                <p>Le président Vladimir Poutine doit prendre la parole vendredi à Saint-Pétersbourg lors d’un important forum d’investissements rassemblant responsab...</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.lapresse.ca/affaires/economie/2026-06-05/selon-l-institut-c-d-howe/encore-trop-tot-pour-parler-de-recession.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: La Presse Affaires</div>
+                <h2>Selon l’Institut C. D. Howe | Encore « trop tôt » pour parler de récession</h2>
+                <p>L’expert non officiel en matière de déclarations de récession au Canada estime qu’il est trop tôt pour employer ce terme afin de décrire le ralenti...</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.bloomberg.com/news/newsletters/2026-06-05/chinese-solar-firms-look-beyond-earth-for-growth" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Bloomberg Business</div>
+                <h2>Chinese Solar Firms Look Beyond Earth for Growth</h2>
+                <p>Years of crippling oversupply are forcing the industry to explore new markets.</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.bloomberg.com/news/newsletters/2026-06-05/private-capital-firms-buckling-under-war-chests-worth-1-3-trillion" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Bloomberg Business</div>
+                <h2>Private Capital Firms Buckling Under War Chests Worth $1.3 Trillion</h2>
+                <p>Time running out for managers as idle cash piles spark showdowns with investors</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.ft.com/content/5869a321-e721-404f-a534-3d28066036a3" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Financial Times Global Economy</div>
+                <h2>FirstFT: SpaceX lines up retail investors for record IPO allocation</h2>
+                <p>Also in today’s newsletter: Mythos at NSA and PwC partner payouts</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #6c63ff; margin: 24px 0 16px; letter-spacing: 2px;">🤖 TECHNOLOGIE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.wired.com/story/openai-and-anthropic-may-be-rivals-but-their-investors-arent-choosing-sides/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Wired</div>
+                <h2>OpenAI and Anthropic May Be Rivals, but Investors Aren’t Picking Sides</h2>
+                <p>“Why wouldn’t you want to be in both Pepsi and Coke?” says one venture capitalist. “It’s the same here.”</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://www.wired.com/story/why-apple-might-put-cameras-into-its-next-airpods/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Wired</div>
+                <h2>Why Apple Might Put Cameras Into Its Next AirPods</h2>
+                <p>From battery life to privacy, there are many hurdles to the idea taking off.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: TechCrunch</div>
+                <h2>Mira Murati steps back into the spotlight, carefully</h2>
+                <p>In the current environment, remaining heads down has diminishing returns; at some point, you have to make some noise just to remind the market you ...</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://techcrunch.com/2026/06/04/founders-fund-launches-game-show-starring-sam-altman-palmer-luckey-and-other-tech-elites/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: TechCrunch</div>
+                <h2>Founders Fund launches game show starring Sam Altman, Palmer Luckey, and other tech elites</h2>
+                <p>The debut episode, moderated by Founders Fund chief marketing officer Mike Solana, included a star-studded cast of current tech luminaries.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #00b894; margin: 24px 0 16px; letter-spacing: 2px;">💰 FINANCE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.bloomberg.com/news/newsletters/2026-06-05/chinese-solar-firms-look-beyond-earth-for-growth" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Bloomberg Markets</div>
+                <h2>Chinese Solar Firms Look Beyond Earth for Growth</h2>
+                <p>Years of crippling oversupply are forcing the industry to explore new markets.</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.bloomberg.com/news/articles/2026-06-05/india-growth-beats-estimates-despite-energy-costs-rupee-slide" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Bloomberg Markets</div>
+                <h2>India Growth Beats Estimates on Strong Domestic Demand</h2>
+                <p>India’s economy grew faster than expected in the three months through March, on sustained private and government spending before higher energy cost...</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.ft.com/content/9e80c722-db20-464d-b8e5-9ec0e900ae07" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Financial Times Markets</div>
+                <h2>The Musk exception on banking fees for SpaceX</h2>
+                <p>Most companies are still likely to pay full price on smaller US deals as a prestige good</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.ft.com/content/b39d9e91-ad91-4230-986a-aadd2ea92452" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Vendredi 5 juin 2026 &bull; Source: Financial Times Markets</div>
+                <h2>SpaceX won’t make the S&P 500</h2>
+                <p>Choose your index wisely</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        (function(){var h=document.getElementById('hamburger'),n=document.getElementById('navLinks');if(h&&n){h.addEventListener('click',function(){h.classList.toggle('active');n.classList.toggle('open');});n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){h.classList.remove('active');n.classList.remove('open');});});document.addEventListener('click',function(e){if(!e.target.closest('nav')){h.classList.remove('active');n.classList.remove('open');}});}
+        var fb=document.querySelectorAll('.filter-btn'),cc=document.querySelectorAll('.veille-card');
+        function fv(c){cc.forEach(function(x){x.classList.toggle('hidden',c!='all'&&x.dataset.category!=c);});fb.forEach(function(b){b.classList.toggle('active',b.dataset.filter==c);});history.replaceState(null,'',c!='all'?'#'+c:'.');}
+        fb.forEach(function(b){b.addEventListener('click',function(){fv(b.dataset.filter);});});
+        var hsh=window.location.hash.replace('#','');if(hsh&&['geopolitique','economie','technologie','finance'].includes(hsh)){fv(hsh);}
+        })();
+    </script>
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>&copy; 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>
