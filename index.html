@@ -198,8 +198,10 @@
         /* ===== SERVICES ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .service-card {
             background: rgba(255,255,255,0.03);
@@ -434,14 +436,18 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         nav .nav-links li:last-child a { border-bottom: none; }
+                @media (max-width: 768px) {
+            .approach-steps { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+        }
+        @media (max-width: 640px) {
             .services-grid { grid-template-columns: 1fr; }
-            .approach-steps { grid-template-columns: 1fr; max-width: 100%; }
             .team-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
             .blog-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
             section { padding: 60px 0; }
             .hero-content .tagline { font-size: 16px; }
             .hero { min-height: 90vh; padding: 100px 20px 60px; }
             .contact-box { padding: 28px 20px; }
+        }
         }
     </style>
 </head>
@@ -550,20 +556,7 @@
                         Nous analysons les tendances émergentes et perturbations sectorielles pour vous guider dans votre transformation organisationnelle.
                     </p>
                 </div>
-                <div class="service-card">
-                    <h3>Mandats sur mesure</h3>
-                    <p>
-                        <span style="color: var(--sable);">Chaque mandat est unique.</span><br/><br/>
-                        Pour gagner un maximum d'impact, un mandat doit répondre à un besoin spécifique. Puisque chaque organisation est unique, notre approche l'est tout autant.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <h3>Veille stratégique</h3>
-                    <p>
-                        <span style="color: var(--sable);">Un radar stratégique pour rester à l'affût des tendances clés.</span><br/><br/>
-                        Veille personnalisée et automatisée, couvrant géopolitique, économie, technologie et finance, livrée selon les besoins.
-                    </p>
-                </div>
+
             </div>
         </div>
     </section>
