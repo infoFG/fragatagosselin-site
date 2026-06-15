@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Après le ROI, place au return on labour – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links { list-style: none; }
+        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none;
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+            cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        nav .nav-links {
+            position: fixed; top: 60px; left: 0; right: 0;
+            flex-direction: column; align-items: flex-end;
+            background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2);
+            padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        .article-header { padding: 100px 0 32px; }
+        .article-header .back { display: inline-block; font-size: 13px; color: var(--ocean); margin-bottom: 20px; }
+        .article-header .back:hover { color: var(--sable); }
+        .article-header .meta { font-size: 12px; color: var(--ocean); letter-spacing: 0.5px; margin-bottom: 8px; }
+        .article-header .category {
+            display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--sable);
+            border: 1px solid var(--sable); border-radius: 4px;
+            padding: 2px 10px; margin-left: 8px;
+        }
+        .article-header h1 {
+            font-size: clamp(26px, 4vw, 38px); font-weight: 400;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire); letter-spacing: 1px; line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .article-content { padding: 0 0 60px; }
+        .article-content p { margin-bottom: 20px; font-size: 16px; }
+        .article-content strong { color: var(--ivoire); }
+        .article-content em { color: var(--sable); }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .article-header { padding: 80px 0 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../" class="logo"><img src="../images/logo-new.webp" alt="Fragata Gosselin" /></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../#mission">Mission</a></li>
+                <li><a href="../#services">Services</a></li>
+                <li><a href="../#approche">Approche</a></li>
+                <li><a href="../#equipe">Équipe</a></li>
+                <li><a href="../#clients">Clients</a></li>
+                <li><a href="./">Articles</a></li>
+                <li><a href="../veille/">Veille stratégique</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="container">
+            <a class="back" href="./">← Retour aux articles</a>
+            <div class="meta">2026-06-15 <span class="category">Stratégie</span></div>
+            <h1>Après le ROI, place au return on labour</h1>
+        </div>
+    </div>
+
+    <section class="article-content">
+        <div class="container">
+
+<p>Toute décision d'investissement commence généralement par la même question : quel rendement obtiendrons-nous sur le capital investi?</p>
+
+<p>Une entreprise achète une machine, implante un logiciel ou automatise une ligne de production. Elle estime ensuite les économies réalisées, les ventes supplémentaires générées et le délai nécessaire pour récupérer sa mise. C'est le calcul classique du retour sur investissement, le ROI.</p>
+
+<p>Mais ce calcul devient incomplet lorsque la principale contrainte de l'entreprise n'est plus l'accès au capital, mais l'accès à la main-d'œuvre qualifiée.</p>
+
+<p>Dans plusieurs secteurs, le problème n'est pas de savoir si l'entreprise pourrait vendre davantage. Il est plutôt de savoir si elle possède suffisamment de techniciens, d'ingénieurs, d'intégrateurs, de machinistes ou d'opérateurs pour livrer ce qu'elle vend.</p>
+
+<p>C'est ici qu'entre en jeu le <em>return on labour</em> : le rendement d'un investissement mesuré à partir de sa capacité à libérer, augmenter ou mieux utiliser le travail disponible.</p>
+
+<p><strong>Produire davantage avec les mêmes équipes</strong></p>
+
+<p>Prenons l'exemple d'un équipement de 500 000 dollars.</p>
+
+<p>L'analyse traditionnelle cherchera à mesurer les économies de matière, d'énergie, d'entretien ou de temps d'arrêt. Elle évaluera aussi l'augmentation potentielle de la production et des ventes.</p>
+
+<p>Mais une autre question devient tout aussi importante : combien d'heures de travail cet investissement permettra-t-il de récupérer?</p>
+
+<p>Une machine automatisée peut permettre à un opérateur de surveiller deux cellules de production plutôt qu'une. Un logiciel de configuration peut réduire de trois heures à trente minutes le temps requis pour produire une soumission. Un outil de diagnostic à distance peut permettre à un technicien de résoudre un problème sans se déplacer.</p>
+
+<p>Dans chacun de ces cas, la technologie ne remplace pas nécessairement un employé. Elle augmente plutôt la capacité productive des employés déjà en poste.</p>
+
+<p><strong>Toutes les heures ne se valent pas</strong></p>
+
+<p>Le <em>return on labour</em> ne consiste pas simplement à compter le nombre d'heures économisées. Une heure de travail administratif répétitif n'a pas la même valeur stratégique qu'une heure d'ingénierie, de programmation ou de service technique spécialisé.</p>
+
+<p>Libérer une heure d'un technicien expérimenté peut permettre de réaliser un mandat facturable, de répondre plus rapidement à un client, de former une recrue ou de résoudre un problème complexe.</p>
+
+<p>Le rendement réel dépend donc de trois éléments :</p>
+
+<p>le nombre d'heures libérées;<br>
+la valeur économique de ces heures;<br>
+la capacité de l'entreprise à les réaffecter à des activités plus productives.</p>
+
+<p>Un investissement peut ainsi afficher un ROI financier modeste, mais un excellent <em>return on labour</em> s'il permet d'éliminer un goulot d'étranglement critique.</p>
+
+<p><strong>La rareté de main-d'œuvre change le calcul</strong></p>
+
+<p>Dans un environnement où la main-d'œuvre est abondante, une entreprise peut augmenter sa capacité en embauchant. Lorsque les compétences sont rares, cette option devient plus coûteuse, plus lente et parfois impossible.</p>
+
+<p>Il ne suffit donc plus de comparer le coût d'une machine au salaire d'un employé. Il faut aussi tenir compte du délai de recrutement, du coût de la formation, du risque de roulement, des heures supplémentaires et du recours à la sous-traitance.</p>
+
+<p>Une technologie qui permet d'éviter l'embauche de trois nouveaux techniciens ne génère pas seulement une économie salariale. Elle réduit aussi le risque opérationnel associé au fait de devoir trouver trois personnes qui ne sont peut-être tout simplement pas disponibles.</p>
+
+<p>Le capital devient alors un substitut à une capacité de travail inaccessible.</p>
+
+<p><strong>Un meilleur argument de vente</strong></p>
+
+<p>Cette logique devrait transformer la manière dont les distributeurs de solutions technologiques, les <em>value-added resellers</em>, les intégrateurs et les équipementiers présentent leurs offres.</p>
+
+<p>Trop souvent, la vente repose encore sur les caractéristiques du produit : une machine plus rapide, un logiciel plus complet, un système plus précis ou une interface plus conviviale.</p>
+
+<p>Pour le client, la vraie question est pourtant beaucoup plus concrète : qu'est-ce que cette solution changera dans mes opérations?</p>
+
+<p>Combien d'heures permettra-t-elle d'économiser?<br>
+Quels employés pourront absorber davantage de volume?<br>
+Combien de contrats supplémentaires pourra-t-on accepter?<br>
+Quel goulot d'étranglement sera éliminé?<br>
+Quelles tâches seront retirées aux ressources les plus rares?</p>
+
+<p>Le fournisseur capable de répondre à ces questions ne vend plus seulement un équipement ou un logiciel. Il vend de la capacité productive.</p>
+
+<p><strong>Comment le mesurer?</strong></p>
+
+<p>Le calcul peut commencer simplement.</p>
+
+<p>Il faut mesurer le nombre d'heures actuellement nécessaires pour accomplir une activité, puis estimer le nombre d'heures requises après l'investissement. La différence représente la capacité de travail libérée.</p>
+
+<p>Cette capacité peut ensuite être valorisée selon le coût horaire complet, le revenu facturable potentiel, la marge supplémentaire générée ou les coûts d'embauche et de sous-traitance évités.</p>
+
+<p>Une formule simplifiée serait la suivante :</p>
+
+<p><em>Return on labour = valeur annuelle du travail libéré ÷ coût total de l'investissement</em></p>
+
+<p>Ce ratio ne remplace pas le ROI traditionnel. Il le complète en rendant visibles des bénéfices que les analyses financières classiques captent mal.</p>
+
+<p><strong>Investir là où le travail est le plus contraint</strong></p>
+
+<p>Toutes les automatisations ne se valent pas.</p>
+
+<p>Automatiser une tâche peu coûteuse, facilement remplaçable et sans effet sur la capacité globale de l'entreprise peut produire peu de valeur. À l'inverse, un investissement modeste dans un processus occupé par une ressource rare peut débloquer une partie importante des opérations.</p>
+
+<p>C'est pourquoi les investissements les plus intéressants se trouvent souvent à l'intersection de trois réalités : une tâche très consommatrice de temps, une compétence difficile à recruter et un lien direct avec la capacité de produire, de vendre ou de servir les clients.</p>
+
+<p>Il faut toutefois garder en tête qu'une heure théoriquement économisée ne crée pas automatiquement de valeur. Encore faut-il que cette heure soit réellement libérée et réaffectée. L'adoption, la formation et la réorganisation du travail comptent autant que la performance de la technologie elle-même.</p>
+
+<p><strong>Le véritable actif rare</strong></p>
+
+<p>Pendant longtemps, les entreprises ont surtout cherché à maximiser le rendement de leurs machines, de leurs immeubles et de leur capital financier.</p>
+
+<p>Elles devront maintenant apprendre à maximiser le rendement de leurs heures de travail qualifié. Non pas en demandant aux employés de travailler davantage, mais en évitant de gaspiller leurs compétences dans des tâches qu'une machine, un logiciel ou un meilleur processus pourrait accomplir.</p>
+
+<p>Dans plusieurs secteurs, le véritable actif rare n'est plus le capital. C'est l'heure du technicien, de l'ingénieur, de l'intégrateur, de l'opérateur ou du spécialiste expérimenté.</p>
+
+<p>Après le ROI, il est peut-être temps de mesurer le <em>return on labour</em>.</p>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="../"><img src="../images/logo-new.webp" alt="Fragata Gosselin" style="display:block;margin:0 auto 24px;width:100%;max-width:400px;height:auto;opacity:1.0;" /></a>
+            <p>&copy; 2026 Fragata Gosselin. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            var h=document.getElementById('hamburger'),
+                n=document.getElementById('navLinks');
+            if(h&&n){
+                h.addEventListener('click',function(){
+                    h.classList.toggle('active');
+                    n.classList.toggle('open');
+                });
+                n.querySelectorAll('a').forEach(function(l){
+                    l.addEventListener('click',function(){
+                        h.classList.remove('active');
+                        n.classList.remove('open');
+                    });
+                });
+                document.addEventListener('click',function(e){
+                    if(!e.target.closest('nav')){
+                        h.classList.remove('active');
+                        n.classList.remove('open');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
