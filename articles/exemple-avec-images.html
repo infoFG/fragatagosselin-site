@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exemple d&#x27;article avec images – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="../images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        :root {
+            --marine: #23364A; --ocean: #42556F; --sable: #D19469;
+            --ivoire: #F4F1F0; --bg-dark: #0a0a1a; --text-light: #e0e0e0; --text-muted: #9999bb;
+        }
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark); color: var(--text-light); line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--sable); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #e0a878; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 60px;
+        }
+        nav .logo img { height: 32px; width: auto; }
+        nav .nav-links a {
+            font-size: 13px; font-weight: 500; color: var(--text-muted);
+            text-decoration: none !important; transition: color 0.2s;
+        }
+        nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
+        .hamburger {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none;
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+            cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
+        }
+        .hamburger:hover { border-color: var(--sable); }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        nav .nav-links {
+            list-style: none;
+            position: fixed; top: 60px; left: 0; right: 0;
+            flex-direction: column; align-items: flex-end;
+            background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(66,85,111,0.2);
+            padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav .nav-links li:last-child a { border-bottom: none; }
+
+        /* ===== ARTICLE IMAGES ===== */
+        .article-hero {
+            width: 100%; max-height: 380px; object-fit: cover;
+            border-radius: 12px; margin-bottom: 32px; display: block;
+        }
+        .article-image { margin: 32px 0; }
+        .article-image img {
+            width: 100%; border-radius: 8px; display: block;
+        }
+        .article-image .caption {
+            font-size: 13px; color: var(--text-muted);
+            margin-top: 8px; text-align: center; font-style: italic; line-height: 1.5;
+        }
+        .article-image .caption strong { color: var(--text-muted); font-weight: 600; }
+        .article-image.left { float: left; max-width: 280px; margin: 4px 24px 16px 0; }
+        .article-image.right { float: right; max-width: 280px; margin: 4px 0 16px 24px; }
+        .article-image-group { display: flex; gap: 16px; margin: 32px 0; }
+        .article-image-group .article-image { flex: 1; margin: 0; }
+        @media (max-width: 640px) {
+            .article-image.left, .article-image.right { float: none; max-width: 100%; margin: 24px 0; }
+            .article-image-group { flex-direction: column; }
+        }
+
+        .article-header { padding: 100px 0 32px; }
+        .article-header .back { display: inline-block; font-size: 13px; color: var(--ocean); margin-bottom: 20px; }
+        .article-header .back:hover { color: var(--sable); }
+        .article-header .meta { font-size: 12px; color: var(--ocean); letter-spacing: 0.5px; margin-bottom: 8px; }
+        .article-header .category {
+            display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--sable);
+            border: 1px solid var(--sable); border-radius: 4px;
+            padding: 2px 10px; margin-left: 8px;
+        }
+        .article-header h1 {
+            font-size: clamp(26px, 4vw, 38px); font-weight: 400;
+            font-family: 'Bebas Neue', 'Manrope', sans-serif;
+            color: var(--ivoire); letter-spacing: 1px; line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .article-content { padding: 0 0 60px; }
+        .article-content p { margin-bottom: 20px; font-size: 16px; }
+        .article-content strong { color: var(--ivoire); }
+        .article-content em { color: var(--sable); }
+
+        footer { border-top: 1px solid rgba(66,85,111,0.3); padding: 32px 0; text-align: center; }
+        footer p { font-size: 12px; color: var(--ivoire); letter-spacing: 0.5px; }
+
+        @media (max-width: 640px) {
+            .article-header { padding: 80px 0 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../" class="logo"><img src="../images/logo-new.webp" alt="Fragata Gosselin" /></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../#mission">Mission</a></li>
+                <li><a href="../#services">Services</a></li>
+                <li><a href="../#approche">Approche</a></li>
+                <li><a href="../#equipe">Équipe</a></li>
+                <li><a href="../#clients">Clients</a></li>
+                <li><a href="./">Articles</a></li>
+                <li><a href="../veille/">Veille stratégique</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-header">
+        <div class="container">
+            <a class="back" href="./">← Retour aux articles</a>
+            <div class="meta">2026-06-15 <span class="category">Stratégie</span></div>
+            <h1>Exemple d&#x27;article avec images</h1>
+        </div>
+    </div>
+
+    <div class="container">
+    <img class="article-hero" src="../images/building-exterior.webp" alt="Hero: Façade du bureau Fragata Gosselin" loading="lazy" />
+</div>
+
+    <section class="article-content">
+        <div class="container">
+        <p>Ceci est un article de démonstration pour montrer comment insérer des images facilement.</p>
+        <p>On écrit le texte normalement. Le <strong>gras</strong> et l'<em>italique</em> fonctionnent.</p>
+        <h2>Insérer une image centrée</h2>
+        <p>Il suffit d'écrire le markdown d'image sur sa propre ligne :</p>
+        <div class="article-image"><img src="../images/building-exterior.webp" alt="Chargement de camion chez un client" loading="lazy" />
+            <div class="caption">Chargement de camion chez un client</div>
+        </div>
+        <p>La légende reprend le texte entre crochets automatiquement.</p>
+        <h2>Image flottante</h2>
+        <p>Pour qu'une image flotte à droite du texte, on ajoute <code>{.right}</code> après le lien :</p>
+        <div class="article-image right"><img src="../images/logo-new.webp" alt="Logo Fragata Gosselin" loading="lazy" />
+            <div class="caption">Logo Fragata Gosselin</div>
+        </div>
+        <p>Le texte continue à côté de l'image. C'est pratique pour les photos d'illustration qui accompagnent un paragraphe sans prendre toute la largeur. Même principe avec <code>{.left}</code> pour flotter à gauche.</p>
+        <h2>Deux images côte à côte</h2>
+        <p>On met les deux images sur des lignes consécutives :</p>
+        <div class="article-image-group">
+        <div class="article-image">
+        <img src="../images/yuani-fragata.webp" alt="Yuani Fragata" loading="lazy" />
+        </div>
+        <div class="article-image">
+        <img src="../images/francis-gosselin.webp" alt="Francis Gosselin" loading="lazy" />
+        </div>
+        </div>
+        <h2>Résumé</h2>
+        <p>Plus besoin d'ouvrir le HTML :</p>
+        <ul>
+        <li><code>{.hero}</code> sur l'image → image pleine largeur en haut</li>
+        <li>Seule sur sa ligne → centrée avec légende</li>
+        <li><code>{.left}</code> ou <code>{.right}</code> → image flottante</li>
+        <li>Deux images sur des lignes consécutives → côte à côte</li>
+        </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="../"><img src="../images/logo-new.webp" alt="Fragata Gosselin" style="display:block;margin:0 auto 24px;width:100%;max-width:400px;height:auto;opacity:1.0;" /></a>
+            <p>&copy; 2026 Fragata Gosselin. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            var h=document.getElementById('hamburger'),
+                n=document.getElementById('navLinks');
+            if(h&&n){
+                h.addEventListener('click',function(){
+                    h.classList.toggle('active');
+                    n.classList.toggle('open');
+                });
+                n.querySelectorAll('a').forEach(function(l){
+                    l.addEventListener('click',function(){
+                        h.classList.remove('active');
+                        n.classList.remove('open');
+                    });
+                });
+                document.addEventListener('click',function(e){
+                    if(!e.target.closest('nav')){
+                        h.classList.remove('active');
+                        n.classList.remove('open');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
