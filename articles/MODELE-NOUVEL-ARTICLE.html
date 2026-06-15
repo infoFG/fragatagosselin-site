@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Comment gérer l’imprévisibilité dans une entreprise ? – FRAGATA GOSSELIN</title>
+    <title>TITRE DE L'ARTICLE – FRAGATA GOSSELIN</title>
     <link rel="icon" href="../images/favicon-drive.jpg" type="image/jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,7 @@
         a:hover { color: #e0a878; }
         .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
+        /* ===== NAV ===== */
         nav {
             background: rgba(10,10,26,0.92); backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(66,85,111,0.2); padding: 0 24px;
@@ -35,70 +36,39 @@
             height: 60px;
         }
         nav .logo img { height: 32px; width: auto; }
-        nav .nav-links { list-style: none; }
-        nav .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none !important; transition: color 0.2s; }
+        nav .nav-links a {
+            font-size: 13px; font-weight: 500; color: var(--text-muted);
+            text-decoration: none !important; transition: color 0.2s;
+        }
         nav .nav-links a:hover, nav .nav-links a.active { color: var(--sable); text-decoration: none !important; }
-        /* Hamburger */
         .hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 36px;
-            height: 36px;
-            background: none;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 6px;
-            gap: 5px;
-            transition: border-color 0.2s;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            width: 36px; height: 36px; background: none;
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+            cursor: pointer; padding: 6px; gap: 5px; transition: border-color 0.2s;
         }
         .hamburger:hover { border-color: var(--sable); }
-        .hamburger span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: var(--text-muted);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
         .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         nav .nav-links {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            flex-direction: column;
-            align-items: flex-end;
-            background: rgba(10,10,26,0.97);
-            backdrop-filter: blur(12px);
+            list-style: none;
+            position: fixed; top: 60px; left: 0; right: 0;
+            flex-direction: column; align-items: flex-end;
+            background: rgba(10,10,26,0.97); backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(66,85,111,0.2);
-            padding: 12px 24px 20px;
-            gap: 4px;
-            transform: translateY(-120%);
-            opacity: 0;
+            padding: 12px 24px 20px; gap: 4px;
+            transform: translateY(-120%); opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
             pointer-events: none;
         }
-        nav .nav-links.open {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: all;
-        }
-        nav .nav-links a {
-            display: block;
-            font-size: 15px;
-            padding: 10px 0;
-            text-align: right;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        nav .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+        nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
         nav .nav-links li:last-child a { border-bottom: none; }
 
-
         /* ===== ARTICLE IMAGES ===== */
+        /* ── Image hero (pleine largeur en haut) ── */
         .article-hero {
             width: 100%;
             max-height: 380px;
@@ -107,6 +77,7 @@
             margin-bottom: 32px;
             display: block;
         }
+        /* ── Image inline centrée ── */
         .article-image { margin: 32px 0; }
         .article-image img {
             width: 100%;
@@ -122,6 +93,7 @@
             line-height: 1.5;
         }
         .article-image .caption strong { color: var(--text-muted); font-weight: 600; }
+        /* ── Image flottante (gauche ou droite) ── */
         .article-image.left {
             float: left;
             max-width: 280px;
@@ -132,6 +104,7 @@
             max-width: 280px;
             margin: 4px 0 16px 24px;
         }
+        /* ── Deux images côte à côte ── */
         .article-image-group {
             display: flex;
             gap: 16px;
@@ -140,23 +113,16 @@
         .article-image-group .article-image { flex: 1; margin: 0; }
         @media (max-width: 640px) {
             .article-image.left, .article-image.right {
-                float: none;
-                max-width: 100%;
-                margin: 24px 0;
+                float: none; max-width: 100%; margin: 24px 0;
             }
             .article-image-group { flex-direction: column; }
         }
 
-        .article-header {
-            padding: 100px 0 32px;
-        }
-        .article-header .back {
-            display: inline-block; font-size: 13px; color: var(--ocean); margin-bottom: 20px;
-        }
+        /* ===== ARTICLE HEADER ===== */
+        .article-header { padding: 100px 0 32px; }
+        .article-header .back { display: inline-block; font-size: 13px; color: var(--ocean); margin-bottom: 20px; }
         .article-header .back:hover { color: var(--sable); }
-        .article-header .meta {
-            font-size: 12px; color: var(--ocean); letter-spacing: 0.5px; margin-bottom: 8px;
-        }
+        .article-header .meta { font-size: 12px; color: var(--ocean); letter-spacing: 0.5px; margin-bottom: 8px; }
         .article-header .category {
             display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px;
             text-transform: uppercase; color: var(--sable);
@@ -187,9 +153,7 @@
         <div class="nav-inner">
             <a href="../" class="logo"><img src="../images/logo-new.webp" alt="Fragata Gosselin" /></a>
             <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../">Accueil</a></li>
@@ -205,35 +169,96 @@
         </div>
     </nav>
 
+    <!-- ════════════════════════════════════════════ -->
+    <!--  EN-TÊTE DE L'ARTICLE                        -->
+    <!-- ════════════════════════════════════════════ -->
     <div class="article-header">
         <div class="container">
             <a class="back" href="./">← Retour aux articles</a>
-            <div class="meta">2026-02-25 <span class="category">Stratégie</span></div>
-            <h1>Comment gérer l’imprévisibilité dans une entreprise ?</h1>
+            <div class="meta">AAAA-MM-JJ <span class="category">Stratégie</span></div>
+            <h1>Titre de l'article</h1>
         </div>
     </div>
 
+    <!-- ════════════════════════════════════════════ -->
+    <!--  IMAGE D'EN-TÊTE (optionnelle)               -->
+    <!--  Supprimez cette section si pas d'image      -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="container">
+        <img class="article-hero" src="../images/votre-image.webp"
+             alt="Description de l'image"
+             loading="lazy" />
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--  CONTENU DE L'ARTICLE                        -->
+    <!-- ════════════════════════════════════════════ -->
     <section class="article-content">
         <div class="container">
-            
-<p>Près de 51 % des entreprises québécoises ont déclaré avoir été affectées par au moins un phénomène climatique dans les 12 derniers mois. Pourtant seulement 8% des entreprises ont déclaré avoir un plan d’adaptation finalisé et 58% n’ont aucune démarche en cours. Cet écart entre la réalité des chocs et le niveau de préparation rappelle une leçon historique apprise par un géant mondial : Toyota.</p>
-<p>Toyota est mondialement reconnu pour sa logistique en <strong><em>Just-in-Time</em> </strong><strong>(JIT)</strong>, un modèle d’efficacité adopté par des géants comme Apple. Cependant, le tsunami de 2011 au Japon a révélé les fragilités de ce système face aux catastrophes majeures. Suite aux ruptures d’approvisionnement massives, Toyota a fait évoluer son modèle vers une <strong>résilience accrue</strong>.</p>
-<p>Plutôt que de passer au <em>Just-in-case</em> total, l’entreprise a mis en place une <strong>cartographie précise</strong> de ses chaînes de fournisseurs et imposé des <strong>stocks stratégiques</strong> sur les composants critiques, comme les semi-conducteurs. Couplée à une plus grande <strong>standardisation des pièces</strong>, cette stratégie a permis à Toyota de démontrer sa robustesse en 2021, en restant l’un des rares constructeurs à maintenir sa production malgré les crises mondiales.</p>
-<p>Ce que Toyota a compris, c’est que la performance ne se mesure plus seulement à l’efficacité par temps calme, mais à la capacité de résistance dans la tempête. Car si les imprévus sont souvent vécus comme une fatalité, la résilience est trop souvent perçue comme un coût inutile. Pourtant, elle est précisément le bouclier qui permet de <strong>garder le contrôle là où d’autres subissent le choc.</strong></p>
-<p>En dehors de l’exemple de la Covid qui nous a tous marqués, d’autres évènements nécessitent une réflexion en amont. Comme une coupure d’électricité, une panne internet, une crue ou … une panne de ChatGPT. Malgré tout, certains secteurs sont plus résilients que d’autres.</p>
-<p>Un secteur où la résilience est une religion est l’aviation. Les avions disposent de multiples systèmes de secours. Si l’un flanche, le suivant prend le relais. C’est cette architecture qui en fait le moyen de transport le plus sûr : même quand les choses tournent mal, plusieurs systèmes soutiennent la structure.</p>
-<p>Puisque nous ne pouvons pas empêcher les crises, limitons leurs effets. Investir dans un plan de résilience, c’est s’assurer de maintenir ses opérations à <strong>80%, 50% ou 30%</strong>. Le but n’est pas la perfection, mais la continuité.</p>
-<p>Ne pas avoir de générateur de secours, c’est l’arrêt complet d’une usine ou la perte de patients dans un hôpital. Chercher à déterminer le rôle de chacun lors d’une crise ressemble à un mouvement de panique dans une foule, ça finit souvent mal.</p>
-<p>Au-delà de la sécurité des opérations, cette préparation constitue un avantage stratégique majeur : les gains d’une entreprise résiliente sont aussi monétaires. Si toutes les entreprises voisines sont à l’arrêt et que la vôtre est la seule à continuer de tourner, vous pouvez honorer vos commandes, mais vous pouvez aussi <strong>récupérer des parts de marché</strong>.</p>
-<p>L’une des pires pratiques serait d’assigner à une seule personne la rédaction d’un plan de résilience. En effet, pour un plan de résilience réussi, il est nécessaire de rassembler des compétences diverses et des points de vue multiples. L’idée n’est pas d’avoir un plan de résilience pour se vanter qu’on est prévoyant, mais d’en avoir un qui est efficace au moment où on en a le plus besoin.</p>
-<p>Montréal a rejoint le programme <em>100 Resilient Cities</em> de la Rockefeller Foundation, qu’en est-il de votre entreprise ?</p>
+
+            <!--
+            ╔═══════════════════════════════════════════════════╗
+            ║   Comment insérer des images dans le texte        ║
+            ╚═══════════════════════════════════════════════════╝
+
+            A) IMAGE CENTRÉE (pleine largeur)
+            ──────────────────────────────────────
+            <div class="article-image">
+                <img src="../images/mon-image.webp"
+                     alt="Description" loading="lazy" />
+                <div class="caption">Légende optionnelle</div>
+            </div>
+
+            B) IMAGE FLOTTANTE À DROITE
+            ──────────────────────────────────────
+            <div class="article-image right">
+                <img src="../images/mon-image.webp"
+                     alt="Description" loading="lazy" />
+                <div class="caption">Légende</div>
+            </div>
+
+            C) IMAGE FLOTTANTE À GAUCHE
+            ──────────────────────────────────────
+            <div class="article-image left">
+                <img src="../images/mon-image.webp"
+                     alt="Description" loading="lazy" />
+                <div class="caption">Légende</div>
+            </div>
+
+            D) DEUX IMAGES CÔTE À CÔTE
+            ──────────────────────────────────────
+            <div class="article-image-group">
+                <div class="article-image">
+                    <img src="../images/img-1.webp" alt="" loading="lazy" />
+                    <div class="caption">Première</div>
+                </div>
+                <div class="article-image">
+                    <img src="../images/img-2.webp" alt="" loading="lazy" />
+                    <div class="caption">Deuxième</div>
+                </div>
+            </div>
+            -->
+
+            <p>Votre premier paragraphe ici.</p>
+
+            <p>Deuxième paragraphe. Si vous voulez une image ici, insérez le bloc
+            <code>.article-image</code> juste avant ce paragraphe.</p>
+
+            <p>Troisième paragraphe.</p>
 
         </div>
     </section>
 
+    <!-- ════════════════════════════════════════════ -->
+    <!--  FOOTER                                      -->
+    <!-- ════════════════════════════════════════════ -->
     <footer>
         <div class="container">
-            <a href="../"><img src="../images/logo-new.webp" alt="Fragata Gosselin" style="display:block;margin:0 auto 24px;width:100%;max-width:400px;height:auto;opacity:1.0;" /></a><p>© 2026 Fragata Gosselin. Tous droits réservés.</p>
+            <a href="../">
+                <img src="../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display:block;margin:0 auto 24px;width:100%;max-width:400px;height:auto;opacity:1.0;" />
+            </a>
+            <p>&copy; 2026 Fragata Gosselin. Tous droits réservés.</p>
         </div>
     </footer>
 

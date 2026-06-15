@@ -64,6 +64,70 @@
         nav .nav-links a { display: block; font-size: 15px; padding: 10px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
         nav .nav-links li:last-child a { border-bottom: none; }
 
+        /* ===== ARTICLE IMAGES ===== */
+        /* Image pleine largeur en haut de l'article */
+        .article-hero {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            display: block;
+        }
+        /* Image encadrée inline */
+        .article-image {
+            margin: 32px 0;
+        }
+        .article-image img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        .article-image .caption {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-align: center;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .article-image .caption strong {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        /* Image flottante à gauche ou à droite */
+        .article-image.left {
+            float: left;
+            max-width: 280px;
+            margin: 4px 24px 16px 0;
+        }
+        .article-image.right {
+            float: right;
+            max-width: 280px;
+            margin: 4px 0 16px 24px;
+        }
+        /* Deux images côte à côte */
+        .article-image-group {
+            display: flex;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .article-image-group .article-image {
+            flex: 1;
+            margin: 0;
+        }
+        @media (max-width: 640px) {
+            .article-image.left,
+            .article-image.right {
+                float: none;
+                max-width: 100%;
+                margin: 24px 0;
+            }
+            .article-image-group {
+                flex-direction: column;
+            }
+        }
+
         .article-header { padding: 100px 0 32px; }
         .article-header .back { display: inline-block; font-size: 13px; color: var(--ocean); margin-bottom: 20px; }
         .article-header .back:hover { color: var(--sable); }
@@ -122,8 +186,35 @@
         </div>
     </div>
 
+    <!-- ════════════════════════════════════════════════════════════════
+         IMAGE D'EN-TÊTE (optionnelle)
+         Remplacez src par le chemin de votre image.
+         Si pas d'image, supprimez la balise <img> ci-dessous.
+         ════════════════════════════════════════════════════════════════ -->
+    <div class="container">
+        <img class="article-hero" src="../images/building-exterior.webp"
+             alt="À remplacer par une description de l'image"
+             loading="lazy" />
+    </div>
+
     <section class="article-content">
         <div class="container">
+
+<!-- ════════════════════════════════════════════════════════════════
+     IMAGE INLINE (optionnelle)
+     Décommentez le bloc ci-dessous pour insérer une image
+     qui flottera à droite du texte.
+     Classes disponibles :
+       .article-image             → centrée, pleine largeur
+       .article-image.left        → flottante à gauche
+       .article-image.right       → flottante à droite
+     ════════════════════════════════════════════════════════════════ -->
+<!--
+<div class="article-image right">
+    <img src="../images/votre-image.webp" alt="Description" loading="lazy" />
+    <div class="caption">Légende optionnelle de l'image</div>
+</div>
+-->
 
 <p>Toute décision d'investissement commence généralement par la même question : quel rendement obtiendrons-nous sur le capital investi?</p>
 
@@ -220,6 +311,23 @@ Quelles tâches seront retirées aux ressources les plus rares?</p>
 <p>Dans plusieurs secteurs, le véritable actif rare n'est plus le capital. C'est l'heure du technicien, de l'ingénieur, de l'intégrateur, de l'opérateur ou du spécialiste expérimenté.</p>
 
 <p>Après le ROI, il est peut-être temps de mesurer le <em>return on labour</em>.</p>
+
+        <!-- ════════════════════════════════════════════════════════════════
+             DEUX IMAGES CÔTE À CÔTE (optionnel)
+             Décommentez pour afficher deux images en grille.
+             ════════════════════════════════════════════════════════════════ -->
+        <!--
+        <div class="article-image-group">
+            <div class="article-image">
+                <img src="../images/image-1.webp" alt="" loading="lazy" />
+                <div class="caption">Première image</div>
+            </div>
+            <div class="article-image">
+                <img src="../images/image-2.webp" alt="" loading="lazy" />
+                <div class="caption">Deuxième image</div>
+            </div>
+        </div>
+        -->
 
         </div>
     </section>
