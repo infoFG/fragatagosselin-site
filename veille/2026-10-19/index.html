@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veille du Lundi 19 octobre 2026 – FRAGATA GOSSELIN</title>
+    <link rel="icon" href="images/favicon-drive.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700&family=Abhaya+Libre:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet" />
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        :root{--marine:#23364A;--ocean:#42556F;--sable:#D19469;--ivoire:#F4F1F0;--bg-dark:#0a0a1a;--text-light:#e0e0e0;--text-muted:#9999bb;}
+        body{font-family:'Manrope',sans-serif;background:var(--bg-dark);color:var(--text-light);line-height:1.7;-webkit-font-smoothing:antialiased;}
+        a{color:var(--sable);text-decoration:none;transition:color .2s;}a:hover{color:#e0a878;}
+        .container{max-width:720px;margin:0 auto;padding:0 24px;}
+        nav{background:rgba(10,10,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:0 24px;position:fixed;top:0;left:0;right:0;z-index:1000;}
+        nav .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+        nav .logo img{height:32px;width:auto;}
+        nav .nav-links{list-style:none;}
+        nav .nav-links a{font-size:13px;font-weight:500;color:var(--text-muted);text-decoration:none!important;transition:color .2s;}
+        nav .nav-links a:hover,nav .nav-links a.active{color:var(--sable);text-decoration:none!important;}
+        .hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:36px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;cursor:pointer;padding:6px;gap:5px;transition:border-color .2s;}
+        .hamburger:hover{border-color:var(--sable);}
+        .hamburger span{display:block;width:20px;height:2px;background:var(--text-muted);border-radius:2px;transition:all .3s;}
+        .hamburger.active span:nth-child(1){transform:translateY(7px)rotate(45deg);}
+        .hamburger.active span:nth-child(2){opacity:0;}
+        .hamburger.active span:nth-child(3){transform:translateY(-7px)rotate(-45deg);}
+        nav .nav-links{position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:flex-end;background:rgba(10,10,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(66,85,111,.2);padding:12px 24px 20px;gap:4px;transform:translateY(-120%);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;}
+        nav .nav-links.open{transform:translateY(0);opacity:1;pointer-events:all;}
+        nav .nav-links a{display:block;font-size:15px;padding:10px 0;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);}
+        nav .nav-links li:last-child a{border-bottom:none;}
+        .page-header{padding-top:160px;padding-bottom:40px;text-align:center;}
+        .page-header .tagline{font-size:20px;font-weight:600;letter-spacing:5px;text-transform:uppercase;font-family:'Bebas Neue','Manrope',sans-serif;color:var(--sable);margin-bottom:12px;}
+        .page-header h1{font-size:clamp(28px,5vw,48px);font-weight:300;font-family:'Bebas Neue',sans-serif;color:var(--ivoire);line-height:1.3;margin-bottom:24px;text-transform:uppercase;letter-spacing:3px;}
+        .page-header p{font-size:15px;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.8;}
+        .veille-list{padding:20px 0 60px;}
+        .veille-card{background:rgba(66,85,111,.06);border:1px solid rgba(66,85,111,.2);border-radius:14px;padding:24px 24px;margin-bottom:16px;transition:all .3s;}
+        .veille-card:hover{background:rgba(66,85,111,.12);transform:translateY(-2px);}
+        .veille-card .date{font-size:12px;color:var(--ocean);margin-bottom:6px;letter-spacing:.5px;}
+        .veille-card h2{font-size:17px;font-weight:500;font-family:'Bebas Neue','Manrope',sans-serif;color:var(--ivoire);margin-bottom:6px;letter-spacing:1px;line-height:1.3;}
+        .veille-card p{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:8px;}
+        .veille-card .cat-badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid;border-radius:4px;padding:1px 6px;}
+        .cat-geopolitique{color:#e94560!important;border-color:#e94560!important;}
+        .veille-card[data-category="geopolitique"]:hover{border-color:#e94560!important;}
+        .cat-economie{color:#0f3460!important;border-color:#0f3460!important;}
+        .veille-card[data-category="economie"]:hover{border-color:#0f3460!important;}
+        .cat-technologie{color:#6c63ff!important;border-color:#6c63ff!important;}
+        .veille-card[data-category="technologie"]:hover{border-color:#6c63ff!important;}
+        .cat-finance{color:#00b894!important;border-color:#00b894!important;}
+        .veille-card[data-category="finance"]:hover{border-color:#00b894!important;}
+        .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+        .filter-btn{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:50px;border:1px solid rgba(66,85,111,.3);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Manrope',sans-serif;}
+        .filter-btn:hover{border-color:var(--sable);color:var(--sable);}
+        .filter-btn.active{background:var(--sable);color:#1a1a1a;border-color:var(--sable);}
+        .filter-btn[data-filter="geopolitique"]:hover{border-color:#e94560;color:#e94560;}
+        .filter-btn[data-filter="geopolitique"].active{background:#e94560;color:#fff;border-color:#e94560;}
+        .filter-btn[data-filter="economie"]:hover{border-color:#0f3460;color:#0f3460;}
+        .filter-btn[data-filter="economie"].active{background:#0f3460;color:#fff;border-color:#0f3460;}
+        .filter-btn[data-filter="technologie"]:hover{border-color:#6c63ff;color:#6c63ff;}
+        .filter-btn[data-filter="technologie"].active{background:#6c63ff;color:#fff;border-color:#6c63ff;}
+        .filter-btn[data-filter="finance"]:hover{border-color:#00b894;color:#00b894;}
+        .filter-btn[data-filter="finance"].active{background:#00b894;color:#fff;border-color:#00b894;}
+        .veille-card.hidden{display:none!important;}
+        .date-today{font-size:14px;color:var(--sable);margin-bottom:16px;font-weight:500;}
+        footer{border-top:1px solid rgba(66,85,111,.3);padding:32px 0;text-align:center;}
+        footer p{font-size:12px;color:var(--ivoire);letter-spacing:.5px;}
+        @media (max-width:640px){.page-header{padding:80px 0 24px;}.veille-card{padding:18px 20px;}}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../">Accueil</a></li>
+                <li><a href="../../#mission">Mission</a></li>
+                <li><a href="../../#services">Services</a></li>
+                <li><a href="../../#approche">Approche</a></li>
+                <li><a href="../../#equipe">Équipe</a></li>
+                <li><a href="../../#clients">Clients</a></li>
+                <li><a href="../../articles/">Articles</a></li>
+                <li><a href="../../veille/">Veille stratégique</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <div class="tagline">FRAGATA GOSSELIN</div>
+            <h1>Veille stratégique</h1>
+            <p>Une sélection d'actualités, de tendances et d'analyses pour nourrir votre réflexion stratégique.</p>
+            <p style="margin-top:20px;"><a href="../archives/" style="display:inline-block;background:var(--sable);color:#1a1a1a;font-size:13px;font-weight:700;padding:10px 28px;border-radius:50px;letter-spacing:.5px;text-decoration:none;transition:all .3s;">Archives &rarr;</a></p>
+        </div>
+    </div>
+
+    <section class="veille-list">
+        <div class="container">
+            <div class="date-today">19 octobre 2026 &mdash; 16 articles</div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="geopolitique">Géopolitique</button>
+                <button class="filter-btn" data-filter="economie">Économie</button>
+                <button class="filter-btn" data-filter="technologie">Technologie</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+            </div>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #e94560; margin: 24px 0 16px; letter-spacing: 2px;">🌍 GÉOPOLITIQUE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.lapresse.ca/international/europe/2026-10-18/france/choc-et-recriminations-au-lendemain-des-emeutes.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: La Presse International</div>
+                <h2>France | Choc et récriminations au lendemain des émeutes</h2>
+                <p>Au lendemain de l’une des pires vagues d’émeutes que la France ait connues depuis des décennies, le président Emmanuel Macron s’est engagé dimanche...</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.lapresse.ca/international/europe/2026-10-18/guerre-en-ukraine/trump-accuse-zelensky-de-ne-pas-vouloir-mettre-fin-au-conflit.php?utm_source=rss&utm_medium=fil&utm_campaign=international" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: La Presse International</div>
+                <h2>Guerre en Ukraine | Trump accuse Zelensky de « ne pas vouloir mettre fin » au conflit</h2>
+                <p>Le président ukrainien Volodymyr Zelensky s’est attiré dimanche de nouvelles critiques de Donald Trump, malgré des contacts avec les émissaires amé...</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.bbc.co.uk/news/articles/crwyd02yz22vo?at_medium=RSS&at_campaign=rss" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: BBC World</div>
+                <h2>Katya Adler: France's government under pressure after weekend of widespread violence</h2>
+                <p>Political tension grips France after rioting marred protests over the cost of living and struggling public services, Katya Adler writes.</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+            <a href="https://www.bbc.co.uk/news/articles/c6pwgzkj8zzgo?at_medium=RSS&at_campaign=rss" class="veille-card" style="display:block;" data-category="geopolitique" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: BBC World</div>
+                <h2>Inside the shadowy world of anti-Putin sabotage from within Russia</h2>
+                <p>Two men tell of the work they say they have been doing to support Ukrainian intelligence during the war.</p>
+                <span class="cat-badge cat-geopolitique">Géopolitique</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #0f3460; margin: 24px 0 16px; letter-spacing: 2px;">📈 ÉCONOMIE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.ledevoir.com/economie/1017797/monde-est-rattrape-dettes" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Le Devoir</div>
+                <h2>Le monde est rattrapé par ses dettes</h2>
+                <p>Il n’y a pas que l’endettement des gouvernements qui augmente. Les taux d’intérêt aussi.</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.lapresse.ca/affaires/economie/2026-10-18/chine/legere-acceleration-de-la-croissance-au-troisieme-trimestre.php?utm_source=rss&utm_medium=fil&utm_campaign=affaires" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: La Presse Affaires</div>
+                <h2>Chine | Légère accélération de la croissance au troisième trimestre</h2>
+                <p>La Chine a connu une croissance de 4,5 % sur un an au troisième trimestre, une légère progression qui la replace dans la fourchette basse de l’obje...</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.ft.com/content/cf113314-1077-4ab4-b667-9912656684f1?syn-25a6b1a6=1" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Financial Times Global Economy</div>
+                <h2>China’s economy picks up pace at 4.5% growth</h2>
+                <p>Third-quarter GDP rate puts world’s second-biggest economy on track for full-year target, analysts say</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+            <a href="https://www.ft.com/content/ba3b9244-bf94-4c3f-a89b-b761488fd71d" class="veille-card" style="display:block;" data-category="economie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Financial Times Global Economy</div>
+                <h2>Has America’s wave of anti-globalisation populism peaked?</h2>
+                <p>When voters turn, leaders follow</p>
+                <span class="cat-badge cat-economie">Économie</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #6c63ff; margin: 24px 0 16px; letter-spacing: 2px;">🤖 TECHNOLOGIE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: TechCrunch</div>
+                <h2>Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’</h2>
+                <p>Anthropic said that it will commit 5% of its shares to the fund.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://arstechnica.com/ai/2026/10/anthropic-gives-outside-ai-watchdog-employee-like-access/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Ars Technica</div>
+                <h2>Anthropic gives outside AI watchdog “employee-like” access</h2>
+                <p>The outside watchdog can publish its findings without Anthropic's approval.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://www.wired.com/story/onlyfans-creators-are-pissed-that-meta-lets-muse-talk-dirty/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Wired</div>
+                <h2>OnlyFans Creators Are Pissed That Meta Lets Muse Talk Dirty</h2>
+                <p>Adult performers are questioning why Meta allows its AI agent to sext while restricting their social media accounts.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+            <a href="https://www.wired.com/story/data-center-industry-is-trying-to-woo-kids/" class="veille-card" style="display:block;" data-category="technologie" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Wired</div>
+                <h2>Data Centers Have a New PR Plan: Your Kid’s Field Trip</h2>
+                <p>Amid a wave of backlash, some industry-friendly groups are employing creative and time-tested strategies to woo the youth.</p>
+                <span class="cat-badge cat-technologie">Technologie</span>
+            </a>
+
+            <h3 style="font-size: 20px; font-weight: 500; font-family: 'Bebas Neue','Manrope',sans-serif; color: #00b894; margin: 24px 0 16px; letter-spacing: 2px;">💰 FINANCE <span style="font-size: 12px; color: var(--text-muted); font-family: 'Manrope',sans-serif;">(4 articles)</span></h3>
+            <a href="https://www.bloomberg.com/news/articles/2026-10-19/france-s-bonds-drop-as-rioting-heaps-pressure-on-government" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Bloomberg Markets</div>
+                <h2>France’s Bonds Drop as Rioting Heaps Pressure on Government</h2>
+                <p>French government bonds dropped after a weekend of violent unrest, underlining the tension between protesters upset over the cost of living and a g...</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.bloomberg.com/news/articles/2026-10-19/uk-debt-is-a-buy-for-traders-betting-on-a-play-it-safe-budget" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Bloomberg Markets</div>
+                <h2>UK Debt Is a Buy for Those Betting on a Play-It-Safe Budget</h2>
+                <p>Some big investors are betting that UK Chancellor John Healey will stick to fiscal discipline in his first budget, setting off a gilts rally.</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.ft.com/content/aef890f1-e3f5-4add-b1fc-6187e2658106?syn-25a6b1a6=1" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Financial Times Markets</div>
+                <h2>Rising interest rates derail property recovery as buyers recut deals</h2>
+                <p>‘Dire’ mood in sector as surging bond yields threaten deals agreed just a few months ago</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+            <a href="https://www.bloomberg.com/news/articles/2026-10-18/election-rallies-that-swept-latin-america-face-reality-check" class="veille-card" style="display:block;" data-category="finance" target="_blank" rel="noopener">
+                <div class="date">Lundi 19 octobre 2026 &bull; Source: Bloomberg Markets</div>
+                <h2>Election Rallies That Swept Latin America Face Reality Check</h2>
+                <p>The searing financial-market rallies unleashed by elections across Latin America are beginning to show signs of cracks — sowing doubts among money ...</p>
+                <span class="cat-badge cat-finance">Finance</span>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        (function(){var h=document.getElementById('hamburger'),n=document.getElementById('navLinks');if(h&&n){h.addEventListener('click',function(){h.classList.toggle('active');n.classList.toggle('open');});n.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){h.classList.remove('active');n.classList.remove('open');});});document.addEventListener('click',function(e){if(!e.target.closest('nav')){h.classList.remove('active');n.classList.remove('open');}});}
+        var fb=document.querySelectorAll('.filter-btn'),cc=document.querySelectorAll('.veille-card');
+        function fv(c){cc.forEach(function(x){x.classList.toggle('hidden',c!='all'&&x.dataset.category!=c);});fb.forEach(function(b){b.classList.toggle('active',b.dataset.filter==c);});history.replaceState(null,'',c!='all'?'#'+c:'.');}
+        fb.forEach(function(b){b.addEventListener('click',function(){fv(b.dataset.filter);});});
+        var hsh=window.location.hash.replace('#','');if(hsh&&['geopolitique','economie','technologie','finance'].includes(hsh)){fv(hsh);}
+        })();
+    </script>
+    <footer>
+        <div class="container">
+            <a href="../../">
+                <img src="../../images/logo-new.webp" alt="Fragata Gosselin"
+                     style="display: block; margin: 0 auto 24px; width: 100%; max-width: 400px; height: auto; opacity: 1.0;" />
+            </a>
+            <p>&copy; 2026 Fragata Gosselin &mdash; Veille stratégique quotidienne</p>
+        </div>
+    </footer>
+</body>
+</html>
